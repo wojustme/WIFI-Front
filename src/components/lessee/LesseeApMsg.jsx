@@ -139,6 +139,7 @@ class LesseeApMsg extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="ap信息分割线"/>
+        <div style={{height:"60px"}} />
         <div
           style={{
             width:"80%",

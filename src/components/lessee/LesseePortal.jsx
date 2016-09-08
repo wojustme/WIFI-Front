@@ -21,6 +21,7 @@ class LesseePortal extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="portal管理分割线"/>
+        <div style={{height:"60px"}} />
       </div>
     );
   }

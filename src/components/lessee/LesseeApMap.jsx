@@ -22,6 +22,7 @@ class LesseeApMap extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="ap分布分割线"/>
+        <div style={{height:"60px"}} />
         <BaiduMap id="apmap"/>
       </div>
     );

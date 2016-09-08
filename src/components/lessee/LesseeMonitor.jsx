@@ -21,6 +21,7 @@ class LesseeMonitor extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="监控中心分割线"/>
+        <div style={{height:"60px"}} />
       </div>
     );
   }
