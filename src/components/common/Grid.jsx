@@ -14,7 +14,6 @@ import './Grid.scss';
  * @version           0.0.1
  */
 class Grid extends React.Component {
-  
   render() {
     const { headData, bodyData, pageInfo } = this.props;
     return(
