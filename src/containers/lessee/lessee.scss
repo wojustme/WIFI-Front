@@ -1,3 +1,10 @@
 .divSection{
   height: 900px;
 }
+.lesseebg-font{
+	animation: kf-tanentfont 4s;
+	@keyframes kf-tanentfont{
+		from {opacity:0;}
+		to {opacity:1;}
+	}
+}

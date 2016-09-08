@@ -21,6 +21,11 @@ class LesseeBG extends React.Component {
       <div>
         <AppHeader itemStates={appHeaderStates}/>
         <Image locateTo='lessee' imgName='租户中心背景'/>
+        {/*背景图上的字*/}
+        <div className="lesseebg-font" style={{position: "absolute",top:230,left:160}}>
+          <Image locateTo="lessee" imgName="租户中心字体1_u2"/><br/>
+          <Image locateTo="lessee" imgName="租户中心字体2_u4"/>
+        </div>
       </div>
     );
   }
