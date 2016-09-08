@@ -9,7 +9,8 @@ import LesseeApMsg from '../../components/lessee/LesseeApMsg';
 import LesseeMonitor from '../../components/lessee/LesseeMonitor';
 import LesseePortal from '../../components/lessee/LesseePortal';
 import InwardNav from '../../components/common/InwardNav';
-import { Element } from '../../utils/scrollNav/index';
+import DivSection from '../../components/common/DivSection';
+import { Events, scrollSpy  } from 'react-scroll';
 import './lessee.scss';
 /**
  * @class             租户中心容器组件
@@ -27,6 +28,10 @@ class Lessee extends React.Component {
     super(props);
     this.state = {
     };
+  }
+  componentDidMount() {
+  }
+  componentWillUnmount() {
   }
   render() {
     // 一级导航栏的选项
@@ -49,26 +54,23 @@ class Lessee extends React.Component {
         {/* 第0屏 */}
         <LesseeBG appHeaderStates={ appHeaderStates }/>
         {/* 第1屏 */}
-        <Element name={navItems[0]}>
+        <DivSection name={navItems[0]} className="divSection">
           <LesseeApMap/>
-        </Element>
+        </DivSection>
         {/* 第2屏 */}
-        <Element name={navItems[1]}>
+        <DivSection name={navItems[1]} className="divSection">
           <LesseeApMsg/>
-        </Element>
+        </DivSection>
         {/* 第3屏 */}
-        <Element name={navItems[2]}>
+        <DivSection name={navItems[2]} className="divSection">
           <LesseePortal/>
-        </Element>
+        </DivSection>
         {/* 第4屏 */}
-        <Element name={navItems[3]}>
+        <DivSection name={navItems[3]} className="divSection">
           <LesseeMonitor/>
-        </Element>
+        </DivSection>
       </div>
     );
-  }
-
-  componentDidMount() {
   }
 }
 

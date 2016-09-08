@@ -4,7 +4,8 @@
  */
 import React from 'react';
 import Image from './Image';
-import { ImgLink } from '../../utils/scrollNav/index';
+import ImgLink from './ImgLink';
+import Scroll, { scroller } from 'react-scroll';
 import { Affix } from 'antd';
 /**
  * @class             二级导航组件
@@ -14,6 +15,7 @@ import { Affix } from 'antd';
  * @version           0.0.1
  */
 class InwardNav extends React.Component {
+
   render() {
     const { baseLocateTo, imgNavBG, navItems } = this.props;
     let items = navItems.map(
@@ -23,8 +25,15 @@ class InwardNav extends React.Component {
             key={elem}
             to={elem}
             spy={true}
+            onClick={
+              (e)=>{
+                scroller.scrollTo(elem, {
+                  smooth: true,
+                })
+              }
+            }
           >
-            <Image locateTo={baseLocateTo} imgName={elem}/>
+            <Image locateTo={baseLocateTo} imgName={elem} cursorStyle="pointer" />
           </ImgLink>
         );
       }
@@ -35,11 +44,14 @@ class InwardNav extends React.Component {
           position:"absolute",
           left:"0px",
           top:"90px",
-          width: "100%"
+          width: "1350px"
         }}
       >
         <Affix>
-          <Image locateTo={baseLocateTo} imgName={imgNavBG}/>
+          <Image
+            locateTo={baseLocateTo}
+            imgName={imgNavBG}
+          />
           <div
             style={{
               position:"absolute",

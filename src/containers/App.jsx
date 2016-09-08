@@ -2,7 +2,7 @@
 /**
  * src/containers/App.jsx
  */
-import React, { Component } from 'react';
+import React from 'react';
 
 import 'antd/dist/antd.min.css';
 /**
@@ -12,7 +12,7 @@ import 'antd/dist/antd.min.css';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div
