@@ -29,10 +29,6 @@ class Lessee extends React.Component {
     this.state = {
     };
   }
-  componentDidMount() {
-  }
-  componentWillUnmount() {
-  }
   render() {
     // 一级导航栏的选项
     let appHeaders = ["首页", "租户中心", "数据中心", "消息中心"];
