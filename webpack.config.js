@@ -7,7 +7,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	devtool: 'source-map',
-	
+
 	module: {
 		loaders: [{
 			test: /\.jsx$/,
@@ -15,15 +15,17 @@ module.exports = {
 			loader: 'react-hot!babel'
 		}, {
 			test: /\.scss$/,
-			exclude: /node_modules/,
 			loader: 'style!css!sass'
-		},{
+		}, {
+			test: /\.css$/,
+			loader: 'style!css'
+		}, {
 			test: /\.(png|jpg)$/,
 			loader: 'url?limit=8192'
 		}, {
-      test: /\.(woff|svg|ttf|eot)([\?]?.*)$/,
-      loader: "file"
-    }]
+			test: /\.(woff|svg|ttf|eot)([\?]?.*)$/,
+			loader: "file"
+		}]
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']

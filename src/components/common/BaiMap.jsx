@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 /**
- * @class             租户中心第1屏中百度地图分布组件
+ * @class             百度地图分布组件
  * @author            xurenhe
  * @date              2016-08-28
  * @copyright         城云科技

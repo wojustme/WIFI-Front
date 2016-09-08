@@ -3,6 +3,8 @@
  * src/containers/App.jsx
  */
 import React, { Component } from 'react';
+
+import 'antd/dist/antd.min.css';
 /**
  * @class 项目最底层容器
  * @author            xurenhe

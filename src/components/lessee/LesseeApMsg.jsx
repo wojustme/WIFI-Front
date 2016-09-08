@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import Image from '../common/Image';
+import Grid from '../common/Grid';
 /**
  * @class             租户中心第1屏的AP信息组件
  * @author            xurenhe
@@ -21,6 +22,16 @@ class LesseeApMsg extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="ap信息分割线"/>
+        <div
+          style={{
+            width:"80%",
+            marginLeft: "auto",
+            marginRight: "auto",
+            textAlign: "center"
+          }}
+        >
+          <Grid />
+        </div>
       </div>
     );
   }
