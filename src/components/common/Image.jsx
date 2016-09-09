@@ -13,13 +13,22 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  */
 class Image extends React.Component {
   render() {
-    const { locateTo, imgName, isSelected, cursorStyle } = this.props;
+    const { locateTo, imgName, isSelected, cursorStyle, style, clickFun } = this.props;
     let selectFlag = isSelected ? "_selected" : "";
     let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + '.png';
+    let styleTmp;
+    style == undefined ?
+      styleTmp = {} :
+      styleTmp = style;
+    cursorStyle == "pointer" ?
+      styleTmp["cursor"] = "pointer" :
+      styleTmp["cursor"] = "auto";
+
     return (
         <img
           src={url}
-          style={cursorStyle=="pointer"?{cursor: "pointer"}:{cursor: "auto"}}
+          style={styleTmp}
+          onClick={clickFun}
         />
     );
   }
