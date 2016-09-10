@@ -41,7 +41,6 @@ class Lessee extends React.Component {
     appHeaderStates.set(appHeaders[1], true);
     // 二级导航栏的选项
     let navItems = ["ap分布", "ap信息", "portal管理", "监控中心"];
-
     return (
       <div>
         {/* 二级导航 */}
@@ -63,7 +62,9 @@ class Lessee extends React.Component {
         </DivSection>
         {/* 第4屏 */}
         <DivSection name={navItems[3]} className="divSection">
-          <LesseeMonitor/>
+          <LesseeMonitor>
+            {this.props.children}
+          </LesseeMonitor>
         </DivSection>
       </div>
     );
