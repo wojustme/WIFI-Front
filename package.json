@@ -30,8 +30,11 @@
   },
   "dependencies": {
     "antd": "^1.10.0",
+    "echarts-for-react": "^1.1.4",
+    "highcharts": "^v4.2.6",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-highcharts": "^10.0.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
     "react-router-redux": "^4.0.5",
