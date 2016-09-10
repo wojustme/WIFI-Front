@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import HeaderOption from './HeaderOption';
-import Image from './Image';
+import SelectFlagImg from './SelectFlagImg';
 /**
  * @class             wifi项目的导航组件
  * @author            xurenhe
@@ -32,7 +32,7 @@ class AppHeader extends React.Component {
           zIndex: 0
         }}
       >
-        <Image locateTo='common' imgName='header导航条背景'/>
+        <SelectFlagImg locateTo='common' imgName='header导航条背景'/>
         {/* 导航条选项标签 */}
         <div
           style={{

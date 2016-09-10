@@ -3,7 +3,7 @@
  * src/components/common/InwardNav.jsx
  */
 import React from 'react';
-import Image from './Image';
+import SelectFlagImg from './SelectFlagImg';
 import ImgLink from './ImgLink';
 import Scroll, { scroller } from 'react-scroll';
 import { Affix } from 'antd';
@@ -33,7 +33,7 @@ class InwardNav extends React.Component {
               }
             }
           >
-            <Image locateTo={baseLocateTo} imgName={elem} cursorStyle="pointer" />
+            <SelectFlagImg locateTo={baseLocateTo} imgName={elem} cursorStyle="pointer" />
           </ImgLink>
         );
       }
@@ -48,7 +48,7 @@ class InwardNav extends React.Component {
         }}
       >
         <Affix>
-          <Image
+          <SelectFlagImg
             locateTo={baseLocateTo}
             imgName={imgNavBG}
           />

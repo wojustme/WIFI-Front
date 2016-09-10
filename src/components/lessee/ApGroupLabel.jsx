@@ -3,8 +3,9 @@
  * src/components/lessee/ApGroupLabel.jsx
  */
 import React from 'react';
-import Image from '../common/Image';
+import AbleFlagImg from '../common/AbleFlagImg';
 import ApGroupItem from './ApGroupItem';
+import { notification } from 'antd';
 /**
  * @class             ap分组信息
  * @author            xurenhe
@@ -17,25 +18,49 @@ class ApGroupLabel extends React.Component {
     super(props);
     this.state = {
       currentFirstIndex: 0,
-      num: 5,
+      num: 8,
       data: ["SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX05",
               "SC-DJX06", "SC-DJX07", "SC-DJX08", "SC-DJX09", "SC-DJX10" ],
-      showData: ["SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX05"],
+      showData: [],
       leftBtnAble: false,
-      rightBtnAble: false
+      rightBtnAble: false,
+      dataLength: 0
     };
+
   }
   moveLeftItems() {
-    console.log("向左移动一位");
-    const { currentFirstIndex } = this.state;
-    let startIndex = currentFirstIndex + 1;
-    this.setIndexState(startIndex);
+    const { currentFirstIndex, num, dataLength, leftBtnAble } = this.state;
+    if(leftBtnAble){
+      let startIndex = currentFirstIndex + 1;
+      this.setIndexState(startIndex);
+      //判断右侧是否到达临界值
+      (startIndex + num) >= dataLength ?
+      this.setState({ leftBtnAble: false }) :
+      this.setState({ leftBtnAble: true });
+      this.setState({ rightBtnAble: true });
+    } else {
+      notification['warning']({
+        message: '警告⚠️',
+        description: '您已经到达记录底部,不可以点击右侧滑动按钮'
+      });
+    }
   }
   moveRightItems() {
-    console.log("向右移动一位");
-    const { currentFirstIndex } = this.state;
-    let startIndex = currentFirstIndex - 1;
-    this.setIndexState(startIndex);
+    const { currentFirstIndex, rightBtnAble } = this.state;
+    if(rightBtnAble){
+      let startIndex = currentFirstIndex - 1;
+      this.setIndexState(startIndex);
+      //判断左侧是否到达临界值
+      startIndex <= 0 ?
+      this.setState({ rightBtnAble: false }) :
+      this.setState({ rightBtnAble: true });
+      this.setState({ leftBtnAble: true });
+    } else {
+      notification['warning']({
+        message: '警告⚠️',
+        description: '您已经到达记录顶部,不可以点击左侧滑动按钮'
+      });
+    }
   }
   setIndexState(startIndex) {
     const { num, data } = this.state;
@@ -46,8 +71,27 @@ class ApGroupLabel extends React.Component {
       currentFirstIndex: startIndex
     });
   }
+  componentWillMount() {
+    const { data, num } = this.state;
+    let startIndex = 0;
+    let endIndex = num;
+    let dataLength = data.length;
+    let showData = data.slice(startIndex, endIndex);
+    this.setState({
+      showData: showData,
+      currentFirstIndex: startIndex,
+      dataLength: dataLength
+    });
+    (startIndex + num) >= dataLength ?
+      this.setState({ leftBtnAble: false }) :
+      this.setState({ leftBtnAble: true });
+
+    startIndex <= 0 ?
+      this.setState({ rightBtnAble: false }) :
+      this.setState({ rightBtnAble: true });
+  }
   render() {
-    const { showData } = this.state;
+    const { showData, leftBtnAble, rightBtnAble } = this.state;
     let apGroupItems = showData.map(
       elem => {
         return <ApGroupItem key={elem} itemName={elem} />
@@ -56,25 +100,33 @@ class ApGroupLabel extends React.Component {
     return (
       <div
         style={{
-          height: "100%",
-          backgroundColor: "rgb(96, 96, 96)",
-          color: "rgb(206, 206, 206)"
+          height: "100%"
         }}
       >
-        <Image
+        <AbleFlagImg
           locateTo='lessee'
           imgName='ap分组信息左侧按钮'
+          able={leftBtnAble}
           style={{
-            float: "left"
+            float: "left",
+            cursor: "pointer"
           }}
           clickFun={this.moveLeftItems.bind(this)}
         />
-        {apGroupItems}
-        <Image
+        <div
+          style={{
+            color: "rgb(206, 206, 206)"
+          }}
+        >
+          {apGroupItems}
+        </div>
+        <AbleFlagImg
           locateTo='lessee'
           imgName='ap分组信息右侧按钮'
+          able={rightBtnAble}
           style={{
-            float: "right"
+            float: "right",
+            cursor: "pointer"
           }}
           clickFun={this.moveRightItems.bind(this)}
         />

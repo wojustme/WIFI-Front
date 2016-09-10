@@ -1,20 +1,21 @@
 'use strict';
 /**
- * src/components/common/Image.jsx
+ * src/components/common/SelectFlagImg.jsx
  */
 import React from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
 /**
- * @class             显示图片组件
+ * @class             显示是否被选中的图片组件
  * @author            xurenhe
- * @date              2016-08-28
+ * @date              2016-09-10
  * @copyright         城云科技
  * @version           0.0.1
  */
-class Image extends React.Component {
+class SelectFlagImg extends React.Component {
   render() {
-    const { locateTo, imgName, cursorStyle, style } = this.props;
-    let url = IMG_SERVER + locateTo + '/' + imgName + '.png';
+    const { locateTo, imgName, isSelected, cursorStyle, style, clickFun } = this.props;
+    let selectFlag = isSelected ? "_selected" : "";
+    let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + '.png';
     let styleTmp;
     style == undefined ?
       styleTmp = {} :
@@ -22,14 +23,14 @@ class Image extends React.Component {
     cursorStyle == "pointer" ?
       styleTmp["cursor"] = "pointer" :
       styleTmp["cursor"] = "auto";
-
     return (
         <img
           src={url}
           style={styleTmp}
         />
+
     );
   }
 }
 
-export { Image as default };
+export { SelectFlagImg as default };

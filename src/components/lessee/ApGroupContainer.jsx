@@ -23,7 +23,7 @@ class ApGroupContainer extends React.Component {
         <div
           style={{
             float: "left",
-            width: "15%",
+            width: "17%",
             height: "100%",
             backgroundColor: "rgb(77, 77, 77)",
             color: "rgb(206, 206, 206)",
@@ -32,6 +32,14 @@ class ApGroupContainer extends React.Component {
           }}
         >
           AP分组
+        </div>
+        <div
+          style={{
+            float: "left",
+            width: "2.5px",
+            height: "100%"
+          }}
+        >
         </div>
         <ApGroupLabel />
       </div>
