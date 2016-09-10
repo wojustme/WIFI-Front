@@ -3,7 +3,7 @@
  * src/components/lessee/ApMsgGrid.jsx
  */
 import React from 'react';
-import Grid from '../common/Grid';
+import Table from '../common/Table';
 import { Pagination, Button } from 'antd';
 /**
  * @class             ap分组信息
@@ -126,17 +126,13 @@ class ApGroupLabel extends React.Component {
         }, {
           title: 'AP纬度',
           dataIndex: 'apLatitude'
-        }, {
-          render: (text, record) => {
-            return (<a>{record.id}</a>)
-          }
         }],
         pageInfo = {
           total: 20
         };
     return (
       <div>
-        <Grid headData={headData} bodyData={bodyData} pageInfo={false} />
+        <Table headData={headData} bodyData={bodyData}/>
         <div
           style={{
             position: "relative",

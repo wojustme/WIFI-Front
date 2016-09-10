@@ -26,7 +26,6 @@ class ApGroupLabel extends React.Component {
       rightBtnAble: false,
       dataLength: 0
     };
-
   }
   moveLeftItems() {
     const { currentFirstIndex, num, dataLength, leftBtnAble } = this.state;
