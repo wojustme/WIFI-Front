@@ -3,7 +3,6 @@
  * src/components/lessee/ApGroupItem.jsx
  */
 import React from 'react';
-import Image from '../common/Image';
 /**
  * @class             ap分组信息中每个展示项
  * @author            xurenhe
@@ -17,10 +16,11 @@ class ApGroupItem extends React.Component {
     return (
       <div
         style={{
-          width: "15%",
+          width: "9%",
           fontSize: "16px",
           float:"left",
-          lineHeight:"56px"
+          lineHeight:"56px",
+          backgroundColor: "rgb(96, 96, 96)"
         }}
       >
         {itemName}

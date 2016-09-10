@@ -3,7 +3,7 @@
  * src/components/common/HeaderOption.jsx
  */
 import React from 'react';
-import Image from '../common/Image';
+import SelectFlagImg from '../common/SelectFlagImg';
 /**
  * @class             wifi项目的导航选项卡组件
  * @author            xurenhe
@@ -15,7 +15,7 @@ class HeaderOption extends React.Component {
   render() {
     let { imgName, isSelected } = this.props;
     return (
-      <Image
+      <SelectFlagImg
         locateTo='common'
         imgName={imgName}
         isSelected={isSelected}

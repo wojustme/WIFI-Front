@@ -3,8 +3,8 @@
  * src/containers/App.jsx
  */
 import React from 'react';
-
 import 'antd/dist/antd.min.css';
+import './OverWriteAntdStyle.scss';
 /**
  * @class 项目最底层容器
  * @author            xurenhe

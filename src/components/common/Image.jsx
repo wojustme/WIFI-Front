@@ -13,9 +13,8 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  */
 class Image extends React.Component {
   render() {
-    const { locateTo, imgName, isSelected, cursorStyle, style, clickFun } = this.props;
-    let selectFlag = isSelected ? "_selected" : "";
-    let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + '.png';
+    const { locateTo, imgName, cursorStyle, style } = this.props;
+    let url = IMG_SERVER + locateTo + '/' + imgName + '.png';
     let styleTmp;
     style == undefined ?
       styleTmp = {} :
@@ -28,7 +27,6 @@ class Image extends React.Component {
         <img
           src={url}
           style={styleTmp}
-          onClick={clickFun}
         />
     );
   }
