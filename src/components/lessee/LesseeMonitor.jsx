@@ -4,6 +4,8 @@
  */
 import React from 'react';
 import Image from '../common/Image';
+import {Link} from 'react-router';
+import LesseeMonitorAll from './LesseeMonitorAll';
 /**
  * @class             租户中心第4屏的监控中心
  * @author            xurenhe
@@ -21,7 +23,21 @@ class LesseeMonitor extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="监控中心分割线"/>
+        <div className="lesseemonitor-menu">
+          <ul>
+            <li><Link activeClassName="active" to='/lessee/monitorAll'>全部</Link></li>
+            <li>|</li>
+            <li><Link activeClassName="active" to='/lessee/monitorAPAlarm'>AP告警</Link></li>
+            <li>|</li>
+            <li><Link activeClassName="active" to='/lessee/monitorSSID'>SSID用户数和比例</Link></li>
+            <li>|</li>
+            <li><Link activeClassName="active" to='/lessee/monitorUserCount'>用户数</Link></li>
+            <li>|</li>
+            <li><Link activeClassName="active" to='/lessee/monitorBandWidth'>带宽(Mbps)</Link></li>
+          </ul>
+        </div>
         <div style={{height:"60px"}} />
+        {this.props.children}
       </div>
     );
   }
