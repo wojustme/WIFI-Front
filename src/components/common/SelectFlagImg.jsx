@@ -17,18 +17,17 @@ class SelectFlagImg extends React.Component {
     let selectFlag = isSelected ? "_selected" : "";
     let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + '.png';
     let styleTmp;
-    style == undefined ?
-      styleTmp = {} :
-      styleTmp = style;
-    cursorStyle == "pointer" ?
-      styleTmp["cursor"] = "pointer" :
-      styleTmp["cursor"] = "auto";
+    style == undefined
+      ? styleTmp = {}
+      : styleTmp = style;
+    cursorStyle == "pointer"
+      ? styleTmp["cursor"] = "pointer"
+      : styleTmp["cursor"] = "auto";
     return (
-        <img
-          src={url}
-          style={styleTmp}
-        />
-
+      <img
+        src={url}
+        style={styleTmp}
+      />
     );
   }
 }

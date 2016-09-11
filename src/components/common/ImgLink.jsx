@@ -16,15 +16,13 @@ class ImgLink extends React.Component {
   render() {
     const { className, children } = this.props;
     let items = React.Children.map(children, (child, idx) => {
-      if(className){
-        return React.cloneElement(child,{
-          isSelected: true
-        })
-      }else{
-        return React.cloneElement(child,{
-          isSelected: false
-        })
-      }
+      return className
+       ? React.cloneElement(child,{
+           isSelected: true
+         })
+       : React.cloneElement(child,{
+           isSelected: false
+         })
     })
     return React.DOM.a(this.props, items);
   }

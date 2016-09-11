@@ -33,9 +33,9 @@ class ApGroupLabel extends React.Component {
       let startIndex = currentFirstIndex + 1;
       this.setIndexState(startIndex);
       //判断右侧是否到达临界值
-      (startIndex + num) >= dataLength ?
-      this.setState({ leftBtnAble: false }) :
-      this.setState({ leftBtnAble: true });
+      (startIndex + num) >= dataLength
+        ? this.setState({ leftBtnAble: false })
+        : this.setState({ leftBtnAble: true });
       this.setState({ rightBtnAble: true });
     } else {
       notification['warning']({
@@ -50,9 +50,9 @@ class ApGroupLabel extends React.Component {
       let startIndex = currentFirstIndex - 1;
       this.setIndexState(startIndex);
       //判断左侧是否到达临界值
-      startIndex <= 0 ?
-      this.setState({ rightBtnAble: false }) :
-      this.setState({ rightBtnAble: true });
+      startIndex <= 0
+        ? this.setState({ rightBtnAble: false })
+        : this.setState({ rightBtnAble: true });
       this.setState({ leftBtnAble: true });
     } else {
       notification['warning']({
@@ -81,13 +81,13 @@ class ApGroupLabel extends React.Component {
       currentFirstIndex: startIndex,
       dataLength: dataLength
     });
-    (startIndex + num) >= dataLength ?
-      this.setState({ leftBtnAble: false }) :
-      this.setState({ leftBtnAble: true });
+    (startIndex + num) >= dataLength
+      ? this.setState({ leftBtnAble: false })
+      : this.setState({ leftBtnAble: true });
 
-    startIndex <= 0 ?
-      this.setState({ rightBtnAble: false }) :
-      this.setState({ rightBtnAble: true });
+    startIndex <= 0
+      ? this.setState({ rightBtnAble: false })
+      : this.setState({ rightBtnAble: true });
   }
   render() {
     const { showData, leftBtnAble, rightBtnAble } = this.state;
