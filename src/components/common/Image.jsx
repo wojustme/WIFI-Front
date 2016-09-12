@@ -16,12 +16,12 @@ class Image extends React.Component {
     const { locateTo, imgName, cursorStyle, style } = this.props;
     let url = IMG_SERVER + locateTo + '/' + imgName + '.png';
     let styleTmp;
-    style == undefined ?
-      styleTmp = {} :
-      styleTmp = style;
-    cursorStyle == "pointer" ?
-      styleTmp["cursor"] = "pointer" :
-      styleTmp["cursor"] = "auto";
+    style == undefined
+      ? styleTmp = {}
+      : styleTmp = style;
+    cursorStyle == "pointer"
+      ? styleTmp["cursor"] = "pointer"
+      : styleTmp["cursor"] = "auto";
 
     return (
         <img

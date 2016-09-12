@@ -21,11 +21,11 @@ class AbleFlagImg extends React.Component {
       styleTmp = {} :
       styleTmp = style;
     return (
-        <img
-          src={url}
-          style={styleTmp}
-          onClick={clickFun}
-        />
+      <img
+        src={url}
+        style={styleTmp}
+        onClick={clickFun}
+      />
     );
   }
 }

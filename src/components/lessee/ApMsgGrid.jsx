@@ -13,6 +13,16 @@ import { Pagination, Button } from 'antd';
  * @version           0.0.1
  */
 class ApGroupLabel extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      bodyData: [],
+      headData: [],
+      pageInfo: {},
+      operateOptions: [],
+      showOperations: false
+    };
+  }
   render() {
     let bodyData = [{
           "id": "01",
@@ -130,9 +140,15 @@ class ApGroupLabel extends React.Component {
         pageInfo = {
           total: 20
         };
+    const { showOperations } = this.state;
     return (
       <div>
-        <Table headData={headData} bodyData={bodyData}/>
+        <Table
+          headData={headData}
+          bodyData={bodyData}
+          operateOptions={["edit"]}
+          showOperations={showOperations}
+        />
         <div
           style={{
             position: "relative",
@@ -153,7 +169,16 @@ class ApGroupLabel extends React.Component {
             style={{
               float: "right"
             }}>
-            <Button type="primary">编辑</Button>
+            <Button
+              type="primary"
+              onClick={
+                ()=>{
+                  this.setState({ showOperations: !showOperations });
+                }
+              }
+            >
+              {this.state.showOperations ? "保存" : "编辑"}
+            </Button>
           </div>
         </div>
       </div>
