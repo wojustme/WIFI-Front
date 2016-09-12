@@ -17,21 +17,11 @@ import './Table.scss';
 class Table extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      headData: [],
-      bodyData: [],
-      operateOptions: [],
-      showOperations: false
-    };
-  }
-  componentWillMount() {
     const { headData, operateOptions } = this.props;
-    this.setState({
+    this.state = {
       headData: headData,
       operateOptions: operateOptions
-    });
-  }
-  componentDidUpdate() {
+    };
   }
   render() {
     const { headData, operateOptions } = this.state;
@@ -45,29 +35,32 @@ class Table extends React.Component {
       tableHead.push(<th key="operates">操作</th>)
     tableHead = <tr>{tableHead}</tr>;
     let tableBody = bodyData.map(
-      elem => {
+      rowElem => {
         let tmp = [];
-        for (let key in elem) {
+        for (let key in rowElem) {
           if(key != "id") {
-            tmp.push(<td key={uuid.v4()}>{elem[key]}</td>)
+            tmp.push(<td key={uuid.v4()}>{rowElem[key]}</td>)
           }
         }
         if(showOperations && !isEmptyArray(operateOptions)) {
           let operateLinks = operateOptions.map(
-            elem => {
-              return <AImg key={elem} actionType={elem} />
+            actionElem => {
+              return <AImg
+              key={actionElem}
+              actionType={actionElem}
+              rowId={rowElem["id"]} />
             }
           )
           tmp.push(
             <td
-              key={"rowid_" + elem["id"]}
+              key={"rowid_" + rowElem["id"]}
               className="operateAction"
             >
               {operateLinks}
             </td>
           );
         }
-        return <tr key={elem["id"]}>{tmp}</tr>
+        return <tr key={rowElem["id"]}>{tmp}</tr>
       }
     );
     return (

@@ -3,6 +3,7 @@
  * src/containers/Lessee.jsx
  */
 import React from 'react';
+import { connect } from 'react-redux';
 import LesseeBG from '../../components/lessee/LesseeBG';
 import LesseeApMap from '../../components/lessee/LesseeApMap';
 import LesseeApMsg from '../../components/lessee/LesseeApMsg';
@@ -30,8 +31,9 @@ class Lessee extends React.Component {
     };
   }
   render() {
-    // 一级导航栏的选项
-    let appHeaders = ["首页", "租户中心", "数据中心", "消息中心"];
+    const { Lessee, dispatch } = this.props;
+    const { appHeaders, navItems, apMsg } = Lessee;
+
     let appHeaderStates = new Map();
     appHeaders.map(
       elem => {
@@ -39,8 +41,6 @@ class Lessee extends React.Component {
       }
     );
     appHeaderStates.set(appHeaders[1], true);
-    // 二级导航栏的选项
-    let navItems = ["ap分布", "ap信息", "portal管理", "监控中心"];
     return (
       <div>
         {/* 二级导航 */}
@@ -54,7 +54,7 @@ class Lessee extends React.Component {
         </DivSection>
         {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">
-          <LesseeApMsg/>
+          <LesseeApMsg apMsgData={apMsg}/>
         </DivSection>
         {/* 第3屏 */}
         <DivSection name={navItems[2]} className="divSection">
@@ -71,4 +71,6 @@ class Lessee extends React.Component {
   }
 }
 
-export { Lessee as default };
+export default connect(state => ({
+  Lessee: state.Lessee
+}))(Lessee)
