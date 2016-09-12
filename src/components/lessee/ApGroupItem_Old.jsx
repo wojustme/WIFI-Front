@@ -3,25 +3,25 @@
  * src/components/lessee/ApGroupItem.jsx
  */
 import React from 'react';
-
 /**
  * @class             ap分组信息中每个展示项
  * @author            xurenhe
- * @date              2016-09-12
+ * @date              2016-09-09
  * @copyright         城云科技
  * @version           0.0.1
  */
 class ApGroupItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    const { itemName, isSelected } = this.props;
-    let className = isSelected ? "apgroup-item apgroup-item-selected" : "apgroup-item";
+    const { itemName } = this.props;
     return (
       <div
-        className={className}
-        onClick={(e)=>{this.props.clickItemByName(e, itemName)}}
+        style={{
+          width: "9%",
+          fontSize: "16px",
+          float:"left",
+          lineHeight:"56px",
+          backgroundColor: "rgb(96, 96, 96)"
+        }}
       >
         {itemName}
       </div>
