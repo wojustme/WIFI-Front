@@ -1,0 +1,19 @@
+//AP信息样式文件
+.lessee-apmsg {
+  .apgroup-item {
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(244, 244, 244);
+    color: rgb(158, 158, 158);
+    padding: 2px;
+    cursor: pointer;
+  }
+  .apgroup-item-selected {
+    font-size: 20px;
+    color: rgb(242, 22, 22);
+  }
+  .apgroup-item:hover {
+    background-color: rgb(38, 233, 210);
+  }
+}

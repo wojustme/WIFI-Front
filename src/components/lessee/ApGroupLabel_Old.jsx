@@ -95,7 +95,7 @@ class ApGroupLabel extends React.Component {
       elem => {
         return <ApGroupItem key={elem} itemName={elem} />
       }
-    )
+    );
     return (
       <div
         style={{
