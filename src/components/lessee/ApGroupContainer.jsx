@@ -14,17 +14,16 @@ import ApGroupItem from './ApGroupItem';
 class ApGroupContainer extends React.Component {
   constructor(props) {
     super(props);
+    const { apGroupList } = this.props;
+    let selectData = apGroupList[0];
     this.state = {
-      data: [ "SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX05",
-            "SC-DJX06", "SC-DJX07", "SC-DJX08", "SC-DJX09", "SC-DJX10",
-            "SC-DJX11", "SC-DJX12", "SC-DJX13", "SC-DJX14", "SC-DJX15",
-            "SC-DJX16", "SC-DJX17", "SC-DJX18", "SC-DJX19", "SC-DJX20" ],
-      selectData: "SC-DJX01"
+      apGroupList: apGroupList,
+      selectData: selectData
     }
   }
   render() {
-    const { data, selectData } = this.state;
-    let apGroupItems = data.map(
+    const { apGroupList, selectData } = this.state;
+    let apGroupItems = apGroupList.map(
       elem => {
         return elem === selectData
           ? <ApGroupItem
