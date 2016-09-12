@@ -75,7 +75,7 @@ class LesseeMonitorAPAlarm extends React.Component{
                     
 		return(
 			<div>
-			<ReactEcharts option = {option} style={{margin:"0 auto",border:"1px solid #D3D3D3",...styleConfig}} />
+				<ReactEcharts option = {option} style={{margin:"0 auto",border:"1px solid #D3D3D3",...styleConfig}} />
 			</div>
 		)
 	}

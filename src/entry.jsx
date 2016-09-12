@@ -2,6 +2,7 @@
 /**
  * src/entry.jsx
  */
+import 'babel-polyfill';//Babel默认只转换新的JavaScript句法,通过babel-polyfill转换新的API
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
