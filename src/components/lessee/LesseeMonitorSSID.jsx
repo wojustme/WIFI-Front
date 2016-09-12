@@ -17,10 +17,12 @@ class LesseeMonitorSSID extends React.Component{
 		const optionColumn = {
 		    color: ['#937BB2'],
 		    title : {
+		    	top:'3%',
 		        text: 'SSID用户数',
 		        x:'center',
 		        textStyle:{//字体
-		        	fontWeight:'normal'
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
 		    tooltip : {
@@ -30,8 +32,9 @@ class LesseeMonitorSSID extends React.Component{
 		        }
 		    },
 		    grid: {
+		    	top:'25%',
 		        left: '3%',
-		        right: '4%',
+		        right: '0%',
 		        bottom: '3%',
 		        containLabel: true
 		    },
@@ -49,7 +52,7 @@ class LesseeMonitorSSID extends React.Component{
 		            type : 'value'
 		        }
 		    ],
-		    toolbox: {
+		    /*toolbox: {
 		        show : true,
 		        feature : {
 		            mark : {show: true},
@@ -69,7 +72,7 @@ class LesseeMonitorSSID extends React.Component{
 		            restore : {show: true},
 		            saveAsImage : {show: true}
 		        }
-		    },
+		    },*/
 		    series : [
 		        {
 		            name:'SSID用户数',
@@ -83,10 +86,12 @@ class LesseeMonitorSSID extends React.Component{
 		const optionPie = {
 			color: ['#C6BFD3','#937BB2','#7D6797'],
 		    title : {
+		    	top:'3%',
 		        text: 'SSID用户比例',
 		        x:'center',
 		        textStyle:{//字体
-		        	fontWeight:'normal'
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
 		    tooltip : {
@@ -94,11 +99,13 @@ class LesseeMonitorSSID extends React.Component{
 		        formatter: "{a} <br/>{b} : {c} ({d}%)"
 		    },
 		    legend: {
-		        orient : 'vertical',
-		        x : 'left',
+		    	top:'86%',
+		        orient : 'horizontal',
+		        x : 'center',
+		        y : 'bottom',
 		        data:['正常','故障']
 		    },
-		    toolbox: {
+		    /*toolbox: {
 		        show : true,
 		        feature : {
 		            mark : {show: true},
@@ -118,14 +125,14 @@ class LesseeMonitorSSID extends React.Component{
 		            restore : {show: true},
 		            saveAsImage : {show: true}
 		        }
-		    },
+		    },*/
 		    calculable : true,
 		    series : [
 		        {
 		            name:'AP预警',
 		            type:'pie',
-		            radius : '55%',
-		            center: ['50%', '60%'],
+		            radius : '60%',
+		            center: ['50%', '50%'],
 		            label:{//标签显示在饼上
 		            	normal:{
 		            		position:'inside'

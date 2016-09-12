@@ -36,16 +36,18 @@ class LesseeMonitorUserCount extends React.Component{
 		        left: 'center',
 		        text: '用户数',
 		        textStyle:{//字体
-		        	fontWeight:'normal'
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
 		    toolbox: {
+		    	x:'left',
 		        feature: {
 		            dataZoom: {
 		                yAxisIndex: 'none'
 		            },
-		            restore: {},
-		            saveAsImage: {}
+		            //restore: {},
+		            //saveAsImage: {}
 		        }
 		    },
 		    xAxis: {
@@ -57,7 +59,14 @@ class LesseeMonitorUserCount extends React.Component{
 		        type: 'value',
 		        boundaryGap: [0, '100%']
 		    },
-		    dataZoom: [{
+		    grid:{
+		    	top:'20%',
+		    	left: '0%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    /*dataZoom: [{
 		        type: 'inside',
 		        start: 0,
 		        end: 10
@@ -73,10 +82,11 @@ class LesseeMonitorUserCount extends React.Component{
 		            shadowOffsetX: 2,
 		            shadowOffsetY: 2
 		        }
-		    }],
+		    }],*/
 		     legend: {
+		     	orient:'vertical',
+		     	x: 'right',
 		        data:['用户数'],
-		        x: 'left'
 		    },
 		    series: [
 		        {
