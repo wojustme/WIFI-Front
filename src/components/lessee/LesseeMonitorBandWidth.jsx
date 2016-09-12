@@ -36,16 +36,18 @@ class LesseeMonitorBandWidth extends React.Component{
 		        left: 'center',
 		        text: '带宽(Mbps)',
 		        textStyle:{//字体
-		        	fontWeight:'normal'
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
 		    toolbox: {
+		    	x:'left',
 		        feature: {
 		            dataZoom: {
 		                yAxisIndex: 'none'
 		            },
-		            restore: {},
-		            saveAsImage: {}
+		            //restore: {},
+		            //saveAsImage: {}
 		        }
 		    },
 		    xAxis: {
@@ -57,7 +59,14 @@ class LesseeMonitorBandWidth extends React.Component{
 		        type: 'value',
 		        boundaryGap: [0, '100%']
 		    },
-		    dataZoom: [{
+		    grid:{
+		    	top:'20%',
+		    	left: '0%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    /*dataZoom: [{
 		        type: 'inside',
 		        start: 0,
 		        end: 10
@@ -73,10 +82,11 @@ class LesseeMonitorBandWidth extends React.Component{
 		            shadowOffsetX: 2,
 		            shadowOffsetY: 2
 		        }
-		    }],
+		    }],*/
 		     legend: {
-		        data:['上传','接收'],
-		        x: 'left'
+		     	orient:'vertical',
+		     	x: 'right',
+		        data:['上传','接收']
 		    },
 		    series: [
 		        {

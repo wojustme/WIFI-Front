@@ -17,10 +17,12 @@ class LesseeMonitorAPAlarm extends React.Component{
 		const option = {
 			color: ['#B8ACC9','#846EA0'],
 		    title : {
+		    	top:'3%',
 		        text: 'AP预警',
 		        x:'center',
 		        textStyle:{//字体
-		        	fontWeight:'normal'
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
 		    tooltip : {
@@ -28,11 +30,13 @@ class LesseeMonitorAPAlarm extends React.Component{
 		        formatter: "{a} <br/>{b} : {c} ({d}%)"
 		    },
 		    legend: {
-		        orient : 'vertical',
-		        x : 'left',
+		    	top:'86%',
+		        orient : 'horizontal',
+		        x : 'center',
+		        y:'bottom',
 		        data:['正常','故障']
 		    },
-		    toolbox: {
+		    /*toolbox: {
 		        show : true,
 		        feature : {
 		            mark : {show: true},
@@ -52,14 +56,14 @@ class LesseeMonitorAPAlarm extends React.Component{
 		            restore : {show: true},
 		            saveAsImage : {show: true}
 		        }
-		    },
+		    },*/
 		    calculable : true,
 		    series : [
 		        {
 		            name:'AP预警',
 		            type:'pie',
-		            radius : '55%',
-		            center: ['50%', '60%'],
+		            radius : '60%',//圆半径
+		            center: ['50%', '50%'],//圆中心位置(x,y)
 		            label:{//标签显示在饼上
 		            	normal:{
 		            		position:'inside'
