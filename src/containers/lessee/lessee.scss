@@ -9,29 +9,3 @@
 		to {opacity:1;}
 	}
 }
-//监控菜单样式
-.lesseemonitor-menu{
-	margin-left: 150px;
-	margin-top: 10px;
-	li{
-		float: left;
-		padding-left: 10px;
-		padding-right: 10px;
-		a{
-			color: #000000;
-			
-		}
-		.active{
-			color: #2DB7F5;
-		}
-
-	}
-}
-
-//css3 鼠标hover时放大
-/* .lesseeMointorAll-amplify{
-	transition: all 1s;  
-}
-.lesseeMointorAll-amplify:hover{
-	transform: scale(1.2);  
-} */
