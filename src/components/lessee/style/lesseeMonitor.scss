@@ -1,0 +1,53 @@
+/*
+* @Author: LiuLei
+* @Date:   2016-09-13 09:40:08
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-09-13 15:12:48
+* @Function 监控中心样式
+*/
+//监控菜单样式
+.lesseemonitor-menu{
+	margin-left: 150px;
+	margin-top: 10px;
+	li{
+		float: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		a{
+			color: #000000;
+			
+		}
+		.active{
+			color: #2DB7F5;
+		}
+
+	}
+}
+
+//css3 鼠标hover时放大
+/* .lesseeMointorAll-amplify{
+	transition: all 1s;  
+}
+.lesseeMointorAll-amplify:hover{
+	transform: scale(1.2);  
+} */
+
+//LesseeMonitorAnalysis样式
+.lesseeMonitorAnalysis{
+	width:395px;
+	height:335px;
+	span{
+		color: #FFF;
+		float: right;
+		padding-right: 3px;
+	}
+	.numCount{
+		border:1px solid #FFF;
+		background-color:#78B8F9;
+	}
+	.passengerFlowChart{
+		border:1px solid #FFF;
+		background-color:#181818;
+		height: auto;
+	}
+}

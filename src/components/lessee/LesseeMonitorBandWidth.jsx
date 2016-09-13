@@ -14,6 +14,7 @@ class LesseeMonitorBandWidth extends React.Component{
 	render(){
 		let {styleConfig}=this.props;
 		styleConfig=(styleConfig?styleConfig:{width:805,height:345});
+		//模拟数据start
 		var base = +new Date(1968, 9, 3);
 		var oneDay = 24 * 3600 * 1000;
 		var date = [];
@@ -25,6 +26,7 @@ class LesseeMonitorBandWidth extends React.Component{
 		    date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
 		    data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
 		}
+		//模拟数据end
 		const option = {
 		    tooltip: {
 		        trigger: 'axis',
