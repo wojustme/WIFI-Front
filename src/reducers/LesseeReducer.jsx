@@ -152,6 +152,17 @@ let defaultState = {
 
 export default function(state = defaultState, action) {
   switch (action.type) {
+    case LesseeTypes.SUBMIT_APMSG_FORM:
+      let modifyData = action.modifyData;
+      let modifyId = modifyData['id'];
+      let bodyData = state.apMsg.tableData.bodyData;
+      for (let elem in bodyData) {
+        if(bodyData[elem].id == modifyId) {
+          bodyData[elem] = modifyData
+        }
+      }
+      return {...state};
+      break;
     default:
       return state;
   }

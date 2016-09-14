@@ -27,10 +27,7 @@ class AImg extends React.Component {
     return (
       <a
         onClick={
-          e => {
-            console.log(this.props)
-            this.props.doAction(e, actionType, rowId)
-          }
+          e => this.props.doAction(actionType, rowId)
         }
       >
         <img

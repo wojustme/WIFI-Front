@@ -33,7 +33,6 @@ class Lessee extends React.Component {
   render() {
     const { Lessee, dispatch } = this.props;
     const { appHeaders, navItems, apMsg } = Lessee;
-
     let appHeaderStates = new Map();
     appHeaders.map(
       elem => {
@@ -54,7 +53,7 @@ class Lessee extends React.Component {
         </DivSection>
         {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">
-          <LesseeApMsg apMsgData={apMsg}/>
+          <LesseeApMsg apMsg={apMsg}/>
         </DivSection>
         {/* 第3屏 */}
         <DivSection name={navItems[2]} className="divSection">

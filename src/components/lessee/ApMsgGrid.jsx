@@ -4,7 +4,11 @@
  */
 import React from 'react';
 import Table from '../common/Table';
-import { Pagination, Button } from 'antd';
+import ModalForm from '../common/ModalForm';
+import { Pagination, Button, Modal, Form, Input } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as LesseeActions from '../../actions/LesseeAction';
 /**
  * @class             ap分组信息
  * @author            xurenhe
@@ -17,13 +21,32 @@ class ApMsgGrid extends React.Component {
     super(props);
     let { showOperations } = this.props;
     this.state = {
-      showOperations: showOperations
+      showOperations: showOperations,
+      visible: false,
+      formData:{},
+      modalLabel:{
+        id: "ID",
+        apName: "AP名称",
+        apType: "AP类型",
+        apMac: "AP-mac",
+        radioMac: "Radio-mac",
+        apAddress: "AP地址",
+        apLongitude: "AP经度",
+        apLatitude: "AP纬度"
+      }
     };
   }
+  showModal(actionType, formData) {
+    this.setState({
+      formData: formData,
+      visible: true
+    })
+  }
   render() {
-    const { gridData } = this.props
-    const { bodyData, headData, pageInfo, operateOptions } = gridData;
-    const { showOperations } = this.state;
+    const { Lessee, dispatch } = this.props
+    const { bodyData, headData, pageInfo, operateOptions } = Lessee.apMsg.tableData;
+    const { showOperations, modalLabel, visible, formData } = this.state;
+    const actions = bindActionCreators(LesseeActions, dispatch);
     return (
       <div>
         <Table
@@ -31,6 +54,11 @@ class ApMsgGrid extends React.Component {
           bodyData={bodyData}
           operateOptions={operateOptions}
           showOperations={showOperations}
+          doAction={
+            (actionType, rowNum) => {
+              this.showModal(actionType, bodyData[rowNum]);
+            }
+          }
         />
         <div
           style={{
@@ -56,7 +84,10 @@ class ApMsgGrid extends React.Component {
               type="primary"
               onClick={
                 ()=>{
-                  this.setState({ showOperations: !showOperations });
+                  this.setState({
+                    showOperations: !showOperations,
+                    visible: false
+                  });
                 }
               }
             >
@@ -64,9 +95,20 @@ class ApMsgGrid extends React.Component {
             </Button>
           </div>
         </div>
+        <ModalForm
+          visible={visible}
+          modalLabel={modalLabel}
+          formData={formData}
+          returnData={
+            (modifyData) => {actions.submitApMsgForm(modifyData);}
+          }
+        />
       </div>
     );
   }
 }
 
-export { ApMsgGrid as default };
+export default connect(state => ({
+  Lessee: state.Lessee
+}))(ApMsgGrid);
+//export { LesseeApMsg as default };

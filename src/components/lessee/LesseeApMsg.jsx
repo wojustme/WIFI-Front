@@ -16,8 +16,8 @@ import './style/ApMsg.scss';
  */
 class LesseeApMsg extends React.Component {
   render() {
-    const { apMsgData } = this.props;
-    const { tableData, apGroupList } = apMsgData;
+    const { apMsg } = this.props;
+    const { tableData, apGroupList } = apMsg;
     return (
       <div
         className="lessee-apmsg"
@@ -53,7 +53,7 @@ class LesseeApMsg extends React.Component {
               height: "100%"
             }}
           >
-            <ApMsgGrid gridData={tableData}/>
+            <ApMsgGrid />
           </div>
         </div>
       </div>

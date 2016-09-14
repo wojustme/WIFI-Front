@@ -26,6 +26,8 @@ class Table extends React.Component {
   render() {
     const { headData, operateOptions } = this.state;
     const { bodyData, showOperations } = this.props;
+    let idToRowNum = new Map();
+    let counter = 0;
     let tableHead = headData.map(
       elem => {
         return <th key={elem.dataIndex}>{elem.title}</th>
@@ -40,6 +42,9 @@ class Table extends React.Component {
         for (let key in rowElem) {
           if(key != "id") {
             tmp.push(<td key={uuid.v4()}>{rowElem[key]}</td>)
+          } else{
+            idToRowNum.set(rowElem[key], counter);
+            counter++;
           }
         }
         if(showOperations && !isEmptyArray(operateOptions)) {
@@ -48,7 +53,10 @@ class Table extends React.Component {
               return <AImg
               key={actionElem}
               actionType={actionElem}
-              rowId={rowElem["id"]} />
+              rowId={rowElem["id"]}
+              doAction={
+                (actionType, rowId) => this.props.doAction(actionType, idToRowNum.get(rowId))
+              }/>
             }
           )
           tmp.push(
