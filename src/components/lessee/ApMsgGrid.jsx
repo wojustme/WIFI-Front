@@ -43,8 +43,8 @@ class ApMsgGrid extends React.Component {
     })
   }
   render() {
-    const { Lessee, dispatch } = this.props
-    const { bodyData, headData, pageInfo, operateOptions } = Lessee.apMsg.tableData;
+    const { apMsgTable, dispatch } = this.props
+    const { bodyData, headData, pageInfo, operateOptions } = apMsgTable;
     const { showOperations, modalLabel, visible, formData } = this.state;
     const actions = bindActionCreators(LesseeActions, dispatch);
     return (
@@ -109,6 +109,6 @@ class ApMsgGrid extends React.Component {
 }
 
 export default connect(state => ({
-  Lessee: state.Lessee
+  apMsgTable: state.Lessee.apMsg.apMsgTable
 }))(ApMsgGrid);
 //export { LesseeApMsg as default };

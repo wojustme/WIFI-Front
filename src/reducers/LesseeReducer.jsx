@@ -7,6 +7,7 @@
  * @copyright         城云科技
  * @version           0.0.1
  */
+import { combineReducers } from 'redux';
 import * as LesseeTypes from '../constants/LesseeTypes';
 
 let bodyData = [{
@@ -132,30 +133,30 @@ let apGroupListData = [ "SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX0
       "SC-DJX16", "SC-DJX17", "SC-DJX18", "SC-DJX19", "SC-DJX20" ];
 
 
-
-let defaultState = {
-  // 一级导航栏的选项
-  appHeaders: ["首页", "租户中心", "数据中心", "消息中心"],
-  // 二级导航栏的选项
-  navItems: ["ap分布", "ap信息", "portal管理", "监控中心"],
-  apMsg: {
-    apGroupList: apGroupListData,
-    tableData: {
-      bodyData: bodyData,
-      headData: headData,
-      pageInfo: pageInfo,
-      operateOptions: ["edit"],
-      showOperations: false
-    }
+let appHeaders = function(state = ["首页", "租户中心", "数据中心", "消息中心"], action) {
+  switch (action.type) {
+    default:
+      return state;
   }
-};
-
-export default function(state = defaultState, action) {
+}
+let navItems = function(state = ["ap分布", "ap信息", "portal管理", "监控中心"], action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+let apMsgTable = function(state = {
+  bodyData: bodyData,
+  headData: headData,
+  pageInfo: pageInfo,
+  operateOptions: ["edit"],
+  showOperations: false
+}, action) {
   switch (action.type) {
     case LesseeTypes.SUBMIT_APMSG_FORM:
       let modifyData = action.modifyData;
       let modifyId = modifyData['id'];
-      let bodyData = state.apMsg.tableData.bodyData;
+      let bodyData = state.bodyData;
       for (let elem in bodyData) {
         if(bodyData[elem].id == modifyId) {
           bodyData[elem] = modifyData
@@ -167,3 +168,18 @@ export default function(state = defaultState, action) {
       return state;
   }
 }
+let apGroupList = function(state = apGroupListData, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+let apMsg = combineReducers({
+  apGroupList,
+  apMsgTable
+})
+export const Lessee = combineReducers({
+  appHeaders,
+  navItems,
+  apMsg
+});
