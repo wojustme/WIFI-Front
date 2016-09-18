@@ -15,6 +15,7 @@ class ApGroupContainer extends React.Component {
   constructor(props) {
     super(props);
     const { apGroupList } = this.props;
+
     let selectData = apGroupList[0];
     this.state = {
       apGroupList: apGroupList,
@@ -30,6 +31,11 @@ class ApGroupContainer extends React.Component {
               key={elem}
               itemName={elem}
               isSelected={true}
+              clickItemByName={
+                (e, itemName) => {
+                  console.log(itemName);
+                }
+              }
             />
           : <ApGroupItem
               key={elem}
@@ -38,7 +44,8 @@ class ApGroupContainer extends React.Component {
                 (e, itemName) => {
                   this.setState({
                     selectData: itemName
-                  })
+                  });
+                  this.props.clickApGroupItem(itemName);
                 }
               }
             />;

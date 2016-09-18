@@ -132,26 +132,59 @@ let apGroupListData = [ "SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX0
       "SC-DJX11", "SC-DJX12", "SC-DJX13", "SC-DJX14", "SC-DJX15",
       "SC-DJX16", "SC-DJX17", "SC-DJX18", "SC-DJX19", "SC-DJX20" ];
 
-
-let appHeaders = function(state = ["首页", "租户中心", "数据中心", "消息中心"], action) {
+/**
+ * 整个项目的导航状态树以及reducer函数
+ * @method    appHeaders
+ * @param     {array}     state   导航选项值
+ * @param     {object}    action  触发的action值
+ * @return    {object}            返回最新的状态树
+ * @author    xurenhe
+ * @date      2016-09-18
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
+let appHeaders = (state = ["首页", "租户中心", "数据中心", "消息中心"], action) => {
   switch (action.type) {
     default:
       return state;
   }
 }
-let navItems = function(state = ["ap分布", "ap信息", "portal管理", "监控中心"], action) {
+/**
+ * 该页面中内部导航操作
+ * @method    navItems
+ * @param     {array}     state   导航选项值
+ * @param     {object}    action  触发的action值
+ * @return    {object}            返回最新的状态树
+ * @author  xurenhe
+ * @date      2016-09-18
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
+let navItems = (state = ["ap分布", "ap信息", "portal管理", "监控中心"], action) => {
   switch (action.type) {
     default:
       return state;
   }
 }
-let apMsgTable = function(state = {
+/**
+ * ap信息中的右侧table操作
+ * @method    apMsgTable
+ * @param     {array}     state   导航选项值
+ * @param     {object}    action  触发的action值
+ * @return    {object}            返回最新的状态树
+ * @author    xurenhe
+ * @date      2016-09-18
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
+let apMsgTable = (state = {
   bodyData: bodyData,
   headData: headData,
   pageInfo: pageInfo,
   operateOptions: ["edit"],
-  showOperations: false
-}, action) {
+  showOperations: false,
+  modalVisible: false
+}, action) => {
   switch (action.type) {
     case LesseeTypes.SUBMIT_APMSG_FORM:
       let modifyData = action.modifyData;
@@ -164,22 +197,61 @@ let apMsgTable = function(state = {
       }
       return {...state};
       break;
+    case LesseeTypes.UPDATE_APMSG_TABLE:
+      let tableData = action.tableData;
+      return {
+        ...state,
+        bodyData: tableData.bodyData,
+        pageInfo: tableData.pageInfo,
+        showOperations: false,
+        modalVisible: false
+      }
+      break;
     default:
       return state;
   }
 }
-let apGroupList = function(state = apGroupListData, action) {
+/**
+ * ap信息中的左侧ap分组操作
+ * @method    navItems
+ * @param     {array}     state   导航选项值
+ * @param     {object}    action  触发的action值
+ * @return    {object}            返回最新的状态树
+ * @author    xurenhe
+ * @date      2016-09-18
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
+let apGroupList = (state = apGroupListData, action) => {
   switch (action.type) {
     default:
       return state;
   }
 }
+// 合并
 let apMsg = combineReducers({
   apGroupList,
   apMsgTable
 })
+// 合并
 export const Lessee = combineReducers({
   appHeaders,
   navItems,
   apMsg
 });
+
+/*
+SHOW STATE TREE:
+Lessee
+  -appHeaders
+  -navItems
+  -apMsg
+    -apGroupList
+    -apMsgTable
+      -bodyData
+      -headData
+      -pageInfo
+      -operateOptions
+      -showOperations
+      -modalVisible
+ */

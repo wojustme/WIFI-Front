@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/lessee/ApMsgGrid.jsx
+ * src/components/lessee/ApMsgTable.jsx
  */
 import React from 'react';
 import Table from '../common/Table';
@@ -16,13 +16,14 @@ import * as LesseeActions from '../../actions/LesseeAction';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class ApMsgGrid extends React.Component {
+class ApMsgTable extends React.Component {
   constructor(props){
     super(props);
-    let { showOperations } = this.props;
+    let { showOperations, modalVisible } = this.props;
     this.state = {
       showOperations: showOperations,
-      visible: false,
+      modalVisible: false,
+      modalVisible: false,
       formData:{},
       modalLabel:{
         id: "ID",
@@ -39,16 +40,29 @@ class ApMsgGrid extends React.Component {
   showModal(actionType, formData) {
     this.setState({
       formData: formData,
-      visible: true
+      modalVisible: true
+    })
+  }
+  componentWillReceiveProps(nextProps) {
+    const { apMsgTable } = this.props;
+    const { showOperations, modalVisible } = apMsgTable;
+    this.setState({
+      showOperations,
+      modalVisible
     })
   }
   render() {
-    const { apMsgTable, dispatch } = this.props
+    const { showOperations, modalLabel, modalVisible, formData } = this.state;
+    const { apMsgTable } = this.props;
     const { bodyData, headData, pageInfo, operateOptions } = apMsgTable;
-    const { showOperations, modalLabel, visible, formData } = this.state;
-    const actions = bindActionCreators(LesseeActions, dispatch);
     return (
-      <div>
+      <div
+        style={{
+          height: "590px",
+          border: "1px solid rgb(220, 220, 220)",
+          backgroundColor: "rgb(220, 220, 220)"
+        }}
+      >
         <Table
           headData={headData}
           bodyData={bodyData}
@@ -86,7 +100,7 @@ class ApMsgGrid extends React.Component {
                 ()=>{
                   this.setState({
                     showOperations: !showOperations,
-                    visible: false
+                    modalVisible: false
                   });
                 }
               }
@@ -96,11 +110,11 @@ class ApMsgGrid extends React.Component {
           </div>
         </div>
         <ModalForm
-          visible={visible}
+          visible={modalVisible}
           modalLabel={modalLabel}
           formData={formData}
           returnData={
-            (modifyData) => {actions.submitApMsgForm(modifyData);}
+            (modifyData) => {this.props.submitApMsgForm(modifyData)}
           }
         />
       </div>
@@ -108,7 +122,4 @@ class ApMsgGrid extends React.Component {
   }
 }
 
-export default connect(state => ({
-  apMsgTable: state.Lessee.apMsg.apMsgTable
-}))(ApMsgGrid);
-//export { LesseeApMsg as default };
+export { ApMsgTable as default };

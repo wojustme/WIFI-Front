@@ -5,7 +5,10 @@
 import React from 'react';
 import Image from '../common/Image';
 import ApGroupContainer from './ApGroupContainer';
-import ApMsgGrid from './ApMsgGrid';
+import ApMsgTable from './ApMsgTable';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as LesseeActions from '../../actions/LesseeAction';
 import './style/ApMsg.scss';
 /**
  * @class             租户中心第2屏的AP信息组件
@@ -16,8 +19,9 @@ import './style/ApMsg.scss';
  */
 class LesseeApMsg extends React.Component {
   render() {
-    const { apMsg } = this.props;
-    const { tableData, apGroupList } = apMsg;
+    const { apMsg, dispatch } = this.props;
+    const { apMsgTable, apGroupList } = apMsg;
+    const actions = bindActionCreators(LesseeActions, dispatch);
     return (
       <div
         className="lessee-apmsg"
@@ -44,7 +48,14 @@ class LesseeApMsg extends React.Component {
               height: "100%"
             }}
           >
-            <ApGroupContainer apGroupList={apGroupList}/>
+            <ApGroupContainer
+              apGroupList={apGroupList}
+              clickApGroupItem={
+                itemName => {
+                  actions.clickApGroupItem(itemName);
+                }
+              }
+            />
           </div>
           <div
             style={{
@@ -53,7 +64,12 @@ class LesseeApMsg extends React.Component {
               height: "100%"
             }}
           >
-            <ApMsgGrid />
+            <ApMsgTable
+              apMsgTable={apMsgTable}
+              submitApMsgForm={
+                (modifyData) => {actions.submitApMsgForm(modifyData)}
+              }
+            />
           </div>
         </div>
       </div>
@@ -61,4 +77,6 @@ class LesseeApMsg extends React.Component {
   }
 }
 
-export { LesseeApMsg as default };
+export default connect(state => ({
+  apMsg: state.Lessee.apMsg
+}))(LesseeApMsg);
