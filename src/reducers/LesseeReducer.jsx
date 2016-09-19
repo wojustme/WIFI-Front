@@ -182,8 +182,9 @@ let apMsgTable = (state = {
   headData: headData,
   pageInfo: pageInfo,
   operateOptions: ["edit"],
-  showOperations: false,
-  modalVisible: false
+  operationsVisible: false,
+  modalVisible: false,
+  modifyTableData: {}
 }, action) => {
   switch (action.type) {
     case LesseeTypes.SUBMIT_APMSG_FORM:
@@ -192,10 +193,12 @@ let apMsgTable = (state = {
       let bodyData = state.bodyData;
       for (let elem in bodyData) {
         if(bodyData[elem].id == modifyId) {
-          bodyData[elem] = modifyData
+          bodyData[elem] = modifyData;
         }
       }
-      return {...state};
+      let modifyTableData = state.modifyTableData;
+      modifyTableData[modifyId] = modifyData;
+      return {...state,modifyTableData};
       break;
     case LesseeTypes.UPDATE_APMSG_TABLE:
       let tableData = action.tableData;
@@ -203,8 +206,20 @@ let apMsgTable = (state = {
         ...state,
         bodyData: tableData.bodyData,
         pageInfo: tableData.pageInfo,
-        showOperations: false,
+        operationsVisible: false,
         modalVisible: false
+      }
+      break;
+    case LesseeTypes.IS_SHOW_OPERATION:
+      return {
+        ...state,
+        operationsVisible: action.operationsVisible
+      }
+      break;
+    case LesseeTypes.IS_SHOWMODAL:
+      return {
+        ...state,
+        modalVisible: action.modalVisible
       }
       break;
     default:
@@ -248,10 +263,14 @@ Lessee
   -apMsg
     -apGroupList
     -apMsgTable
-      -bodyData
-      -headData
-      -pageInfo
-      -operateOptions
-      -showOperations
-      -modalVisible
+      -bodyData             =>表格主体数据
+      -headData             =>表格头数据
+      -pageInfo             =>表格的分页信息
+        -totalPage
+        -currentPage
+        -pageSize
+      -operateOptions       =>表格操作的选项
+      -operationsVisible    =>是否显示表格操作选项
+      -modalVisible         =>是否显示模态框
+      -modifyTableData      =>修改的table数据，object类型*
  */

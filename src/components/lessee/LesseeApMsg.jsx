@@ -50,7 +50,7 @@ class LesseeApMsg extends React.Component {
           >
             <ApGroupContainer
               apGroupList={apGroupList}
-              clickApGroupItem={
+              clickApGroupItem = {
                 itemName => {
                   actions.clickApGroupItem(itemName);
                 }
@@ -65,9 +65,21 @@ class LesseeApMsg extends React.Component {
             }}
           >
             <ApMsgTable
-              apMsgTable={apMsgTable}
-              submitApMsgForm={
-                (modifyData) => {actions.submitApMsgForm(modifyData)}
+              apMsgTable = {apMsgTable}
+              submitApMsgForm = {
+                modifyData => actions.submitApMsgForm(modifyData)
+              }
+              changePage = {
+                page => actions.changeApMsgTablePage(page)
+              }
+              clickOperateTable = {
+                (operationsVisible, modifyTableData) => actions.clickOperateTable(operationsVisible, modifyTableData)
+              }
+              openModal = {
+                (actionType, formData) => actions.openModal(actionType, formData)
+              }
+              closeModal = {
+                () => actions.closeModal()
               }
             />
           </div>

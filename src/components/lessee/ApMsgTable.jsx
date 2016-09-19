@@ -19,9 +19,9 @@ import * as LesseeActions from '../../actions/LesseeAction';
 class ApMsgTable extends React.Component {
   constructor(props){
     super(props);
-    let { showOperations, modalVisible } = this.props;
+    let { operationsVisible, modalVisible } = this.props;
     this.state = {
-      showOperations: showOperations,
+      operationsVisible: operationsVisible,
       modalVisible: false,
       modalVisible: false,
       formData:{},
@@ -39,22 +39,13 @@ class ApMsgTable extends React.Component {
   }
   showModal(actionType, formData) {
     this.setState({
-      formData: formData,
-      modalVisible: true
-    })
-  }
-  componentWillReceiveProps(nextProps) {
-    const { apMsgTable } = this.props;
-    const { showOperations, modalVisible } = apMsgTable;
-    this.setState({
-      showOperations,
-      modalVisible
+      formData: formData
     })
   }
   render() {
-    const { showOperations, modalLabel, modalVisible, formData } = this.state;
+    const { modalLabel, formData } = this.state;
     const { apMsgTable } = this.props;
-    const { bodyData, headData, pageInfo, operateOptions } = apMsgTable;
+    const { bodyData, headData, pageInfo, operateOptions, operationsVisible, modalVisible } = apMsgTable;
     return (
       <div
         style={{
@@ -67,10 +58,11 @@ class ApMsgTable extends React.Component {
           headData={headData}
           bodyData={bodyData}
           operateOptions={operateOptions}
-          showOperations={showOperations}
+          operationsVisible={operationsVisible}
           doAction={
             (actionType, rowNum) => {
-              this.showModal(actionType, bodyData[rowNum]);
+              this.showModal(actionType, bodyData[rowNum])
+              this.props.openModal()
             }
           }
         />
@@ -88,7 +80,13 @@ class ApMsgTable extends React.Component {
               width: "80%"
             }}
           >
-            <Pagination defaultCurrent={1} total={20} />
+            <Pagination
+              defaultCurrent={1}
+              total={20}
+              onChange={
+                page => this.props.changePage(page)
+              }
+            />
           </div>
           <div
             style={{
@@ -97,15 +95,12 @@ class ApMsgTable extends React.Component {
             <Button
               type="primary"
               onClick={
-                ()=>{
-                  this.setState({
-                    showOperations: !showOperations,
-                    modalVisible: false
-                  });
+                (e) => {
+                  this.props.clickOperateTable(operationsVisible, apMsgTable.modifyTableData)
                 }
               }
             >
-              {this.state.showOperations ? "保存" : "编辑"}
+              { operationsVisible ? "保存" : "编辑" }
             </Button>
           </div>
         </div>
@@ -115,6 +110,9 @@ class ApMsgTable extends React.Component {
           formData={formData}
           returnData={
             (modifyData) => {this.props.submitApMsgForm(modifyData)}
+          }
+          closeModal={
+            () => {this.props.closeModal()}
           }
         />
       </div>

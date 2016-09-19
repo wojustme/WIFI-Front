@@ -17,6 +17,7 @@ import { Button, Modal, Form, Input } from 'antd';
 class ModalForm extends React.Component {
   constructor(props) {
     super(props);
+    const { visible } = this.props;
     this.state={
       visible: false,
       confirmLoading: false,
@@ -30,16 +31,17 @@ class ModalForm extends React.Component {
     });
     setTimeout(() => {
       this.setState({
-        visible: false,
         confirmLoading: false
       });
-    }, 1000);
-    this.props.returnData(modifyData)
+      this.handleClose();
+    }, 500);
+    this.props.returnData(modifyData);
   }
   handleCancel() {
-    this.setState({
-      visible: false
-    });
+    this.handleClose();
+  }
+  handleClose() {
+    this.props.closeModal();
   }
   getFieldsData() {
     const { modifyIndexs } =this.state;
@@ -50,15 +52,9 @@ class ModalForm extends React.Component {
     }
     return fieldsData;
   }
-  componentWillReceiveProps(nextProps) {
-    const { visible } = nextProps;
-    this.setState({
-      visible: visible
-    })
-  }
   render() {
-    const { visible, confirmLoading } = this.state;
-    const { modalLabel, formData } = this.props;
+    const { confirmLoading } = this.state;
+    const { modalLabel, formData, visible } = this.props;
     const FormItem = Form.Item;
     let formItemLayout = {
       labelCol: { span: 6 },

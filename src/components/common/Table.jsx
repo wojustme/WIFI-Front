@@ -25,7 +25,7 @@ class Table extends React.Component {
   }
   render() {
     const { headData, operateOptions } = this.state;
-    const { bodyData, showOperations } = this.props;
+    const { bodyData, operationsVisible } = this.props;
     let idToRowNum = new Map();
     let counter = 0;
     let tableHead = headData.map(
@@ -33,7 +33,7 @@ class Table extends React.Component {
         return <th key={elem.dataIndex}>{elem.title}</th>
       }
     );
-    if(showOperations && !isEmptyArray(operateOptions))
+    if(operationsVisible && !isEmptyArray(operateOptions))
       tableHead.push(<th key="operates">操作</th>)
     tableHead = <tr>{tableHead}</tr>;
     let tableBody = bodyData.map(
@@ -47,7 +47,7 @@ class Table extends React.Component {
             counter++;
           }
         }
-        if(showOperations && !isEmptyArray(operateOptions)) {
+        if(operationsVisible && !isEmptyArray(operateOptions)) {
           let operateLinks = operateOptions.map(
             actionElem => {
               return <AImg
