@@ -187,7 +187,7 @@ let apMsgTable = (state = {
   modifyTableData: {}
 }, action) => {
   switch (action.type) {
-    case LesseeTypes.SUBMIT_APMSG_FORM:
+    case LesseeTypes.LESSEEAPMSG_SUBMIT_APMSG_FORM:
       let modifyData = action.modifyData;
       let modifyId = modifyData['id'];
       let bodyData = state.bodyData;
@@ -200,7 +200,7 @@ let apMsgTable = (state = {
       modifyTableData[modifyId] = modifyData;
       return {...state,modifyTableData};
       break;
-    case LesseeTypes.UPDATE_APMSG_TABLE:
+    case LesseeTypes.LESSEEAPMSG_UPDATE_APMSG_TABLE:
       let tableData = action.tableData;
       return {
         ...state,
@@ -210,13 +210,13 @@ let apMsgTable = (state = {
         modalVisible: false
       }
       break;
-    case LesseeTypes.IS_SHOW_OPERATION:
+    case LesseeTypes.LESSEEAPMSG_IS_SHOW_OPERATION:
       return {
         ...state,
         operationsVisible: action.operationsVisible
       }
       break;
-    case LesseeTypes.IS_SHOWMODAL:
+    case LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL:
       return {
         ...state,
         modalVisible: action.modalVisible

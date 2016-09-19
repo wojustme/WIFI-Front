@@ -15,7 +15,7 @@ import * as LesseeTypes from '../constants/LesseeTypes';
  */
 export let submitApMsgForm = (modifyData) => {
   return {
-    type: LesseeTypes.SUBMIT_APMSG_FORM,
+    type: LesseeTypes.LESSEEAPMSG_SUBMIT_APMSG_FORM,
     modifyData
   }
 }
@@ -32,11 +32,28 @@ export let submitApMsgForm = (modifyData) => {
 export let clickApGroupItem = (itemName) => {
   let testNum = itemName.substring(itemName.length - 1);
   return dispatch => {
+    // 异步
+    dispatch(testAsync());
     return fetch(`http://localhost:9992/data/lessee/grid${testNum}.json`)
       .then(response => response.json())
       .then(json => {
         dispatch(updateApMsgTable(json));
       })
+  }
+}
+/**
+ * 测试异步
+ * @method    testAsync
+ * @return    {object}   action数据流
+ * @author  xurenhe
+ * @date      2016-09-19
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
+export let testAsync = () => {
+  console.log("testAsync");
+  return {
+    type : 'testAsync'
   }
 }
 /**
@@ -51,7 +68,7 @@ export let clickApGroupItem = (itemName) => {
  */
 export let updateApMsgTable = (tableData) => {
   return {
-    type: LesseeTypes.UPDATE_APMSG_TABLE,
+    type: LesseeTypes.LESSEEAPMSG_UPDATE_APMSG_TABLE,
     tableData
   }
 }
@@ -84,12 +101,15 @@ export let changeApMsgTablePage = (page) => {
  * @copyright                       城云科技
  * @version                         0.0.1
  */
-export let clickOperateTable = (operationsVisible, apMsgTable) => {
+export let clickOperateTable = (operationsVisible, modifyTableData) => {
   // 编辑=>false 保存=>true
-  if (operationsVisible) {
-    return dispatch => dispatch(syncApMsgTable(apMsgTable));
+  // 异步方式
+  return dispatch => {
+    if (operationsVisible) {
+      dispatch(syncApMsgTable(modifyTableData));
+    }
+    return dispatch(isShowOperations(operationsVisible));
   }
-  return dispatch => dispatch(isShowOperations(operationsVisible));
 }
 /**
  * 同步后台数据
@@ -102,8 +122,11 @@ export let clickOperateTable = (operationsVisible, apMsgTable) => {
  * @version                  0.0.1
  */
 export let syncApMsgTable = (modifyTableData) => {
-  console.log(modifyTableData);
-  return dispatch => dispatch(isShowOperations(modifyTableData));
+  console.log("同步数据");
+  return {
+    type: LesseeTypes.LESSEEAPMSG_SYNC_APMSG_TABLE_DATA,
+    modifyTableData
+  }
 }
 /**
  * 是否显示table控制栏
@@ -116,9 +139,10 @@ export let syncApMsgTable = (modifyTableData) => {
  * @version                    0.0.1
  */
 export let isShowOperations = (operationsVisible) => {
+  console.log("是否显示action栏");
   let isShow = !operationsVisible;
   return {
-    type: LesseeTypes.IS_SHOW_OPERATION,
+    type: LesseeTypes.LESSEEAPMSG_IS_SHOW_OPERATION,
     operationsVisible: isShow
   }
 }
@@ -133,7 +157,7 @@ export let isShowOperations = (operationsVisible) => {
  */
 export let openModal = () => {
   return {
-    type: LesseeTypes.IS_SHOWMODAL,
+    type: LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL,
     modalVisible: true
   }
 }
@@ -148,7 +172,7 @@ export let openModal = () => {
  */
 export let closeModal = () => {
   return {
-    type: LesseeTypes.IS_SHOWMODAL,
+    type: LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL,
     modalVisible: false
   }
 }
