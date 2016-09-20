@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import Header from './header/AppHeader';
+import Footer from './footer/Footer';
 import 'antd/dist/antd.min.css';
 import './OverWriteAntdStyle.scss';
 /**
@@ -13,7 +14,6 @@ import './OverWriteAntdStyle.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
-import Footer from '../components/common/Footer';
 class App extends React.Component {
   render() {
     return (

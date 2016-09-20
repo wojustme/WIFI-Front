@@ -7,14 +7,14 @@
 
 import React from 'react';
 import {Row,Col} from 'antd';
-import Image from './Image';
+import Image from '../../components/common/Image';
 import './Footer.scss';
 class Footer extends React.Component{
 	render(){
 		return(
 			<div className='footer'>
 				<div className='register'>
-					<Image locateTo="common" imgName="footer_register"/>
+					<Image locateTo="footer" imgName="footer_register"/>
 					<div><a href=''></a></div>
 				</div>
 				<div className='about'>
@@ -55,7 +55,7 @@ class Footer extends React.Component{
 							<ul>
 								<li className='title'>与城云互动</li>
 								<li>扫描二维码</li>
-								<li><Image locateTo="common" imgName="cci-qr"/></li>
+								<li><Image locateTo="footer" imgName="cci-qr"/></li>
 								<li>扫描二维码，关注城云</li>
 							</ul>
 						</Col>
