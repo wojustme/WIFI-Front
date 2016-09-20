@@ -30,7 +30,11 @@ class LesseeMonitor extends React.Component {
             imgName: "监控中心分割线"
           }}
         />
+<<<<<<< HEAD
         <div className="lesseemonitor-menu">
+=======
+        <div className="lesseeMonitor-menu">
+>>>>>>> dev-lei
           <ul>
             <li><Link activeClassName="active" to='/lessee/monitorAll'>全部</Link></li>
             <li>|</li>
@@ -43,7 +47,7 @@ class LesseeMonitor extends React.Component {
             <li><Link activeClassName="active" to='/lessee/monitorBandWidth'>带宽(Mbps)</Link></li>
           </ul>
         </div>
-        <div style={{height:"60px"}} />
+        <div style={{height:"50px"}} />
         {this.props.children}
       </div>
     );
