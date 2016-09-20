@@ -43,7 +43,7 @@ class LesseeMonitor extends React.Component {
             <li><Link activeClassName="active" to='/lessee/monitorBandWidth'>带宽(Mbps)</Link></li>
           </ul>
         </div>
-        <div style={{height:"60px"}} />
+        <div style={{height:"50px"}} />
         {this.props.children}
       </div>
     );
