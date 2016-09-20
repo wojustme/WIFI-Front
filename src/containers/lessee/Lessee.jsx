@@ -8,7 +8,6 @@ import LesseeBG from '../../components/lessee/LesseeBG';
 import LesseeApMap from '../../components/lessee/LesseeApMap';
 import LesseeApMsg from '../../components/lessee/LesseeApMsg';
 import LesseeMonitor from '../../components/lessee/LesseeMonitor';
-import LesseePortal from '../../components/lessee/LesseePortal';
 import InwardNav from '../../components/common/InwardNav';
 import DivSection from '../../components/common/DivSection';
 import { Events, scrollSpy  } from 'react-scroll';

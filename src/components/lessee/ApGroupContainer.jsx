@@ -63,6 +63,16 @@ class ApGroupContainer extends React.Component {
           }}
         >
           AP分组
+          <span
+            style={{
+              float: "right",
+              cursor: "pointer",
+              marginRight: "10px"
+            }}
+            onClick={e => this.props.addApGroup()}
+          >
+            +
+          </span>
         </div>
         <div
           style={{

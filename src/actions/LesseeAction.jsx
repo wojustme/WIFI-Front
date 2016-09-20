@@ -176,3 +176,10 @@ export let closeModal = () => {
     modalVisible: false
   }
 }
+
+export let addApGroup = () => {
+  console.log("LESSEEAPMSG_ADDAPGROUP");
+  return {
+    type: LesseeTypes.LESSEEAPMSG_ADDAPGROUP
+  }
+}
