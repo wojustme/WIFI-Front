@@ -133,23 +133,6 @@ let apGroupListData = [ "SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX0
       "SC-DJX16", "SC-DJX17", "SC-DJX18", "SC-DJX19", "SC-DJX20" ];
 
 /**
- * 整个项目的导航状态树以及reducer函数
- * @method    appHeaders
- * @param     {array}     state   导航选项值
- * @param     {object}    action  触发的action值
- * @return    {object}            返回最新的状态树
- * @author    xurenhe
- * @date      2016-09-18
- * @copyright            城云科技
- * @version              0.0.1
- */
-let appHeaders = (state = ["首页", "租户中心", "数据中心", "消息中心"], action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-/**
  * 该页面中内部导航操作
  * @method    navItems
  * @param     {array}     state   导航选项值
@@ -160,7 +143,7 @@ let appHeaders = (state = ["首页", "租户中心", "数据中心", "消息中�
  * @copyright            城云科技
  * @version              0.0.1
  */
-let navItems = (state = ["ap分布", "ap信息", "portal管理", "监控中心"], action) => {
+let navItems = (state = ["ap分布", "ap信息", "监控中心"], action) => {
   switch (action.type) {
     default:
       return state;
@@ -250,7 +233,6 @@ let apMsg = combineReducers({
 })
 // 合并
 export const Lessee = combineReducers({
-  appHeaders,
   navItems,
   apMsg
 });
@@ -258,7 +240,6 @@ export const Lessee = combineReducers({
 /*
 SHOW STATE TREE:
 Lessee
-  -appHeaders
   -navItems
   -apMsg
     -apGroupList

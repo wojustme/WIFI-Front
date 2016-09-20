@@ -3,6 +3,7 @@
  * src/containers/App.jsx
  */
 import React from 'react';
+import Header from './header/AppHeader';
 import 'antd/dist/antd.min.css';
 import './OverWriteAntdStyle.scss';
 /**
@@ -23,6 +24,7 @@ class App extends React.Component {
           left:"0px"
         }}
       >
+        <Header />
         { this.props.children }
         {/*footer*/}
         <Footer/>

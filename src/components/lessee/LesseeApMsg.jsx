@@ -9,6 +9,7 @@ import ApMsgTable from './ApMsgTable';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as LesseeActions from '../../actions/LesseeAction';
+import PartingLine from '../common/PartingLine';
 import './style/ApMsg.scss';
 /**
  * @class             租户中心第2屏的AP信息组件
@@ -30,8 +31,12 @@ class LesseeApMsg extends React.Component {
           textAlign:"center"
         }}
       >
-        <Image locateTo="lessee" imgName="ap信息分割线"/>
-        <div style={{height:"60px"}} />
+        <PartingLine
+          useImgSource={{
+            locateTo: "lessee",
+            imgName: "ap信息分割线"
+          }}
+        />
         <div
           style={{
             width: "80%",
