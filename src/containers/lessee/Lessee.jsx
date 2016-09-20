@@ -32,24 +32,18 @@ class Lessee extends React.Component {
   }
   render() {
     const { Lessee, dispatch } = this.props;
-    const { appHeaders, navItems, apMsg } = Lessee;
-    let appHeaderStates = new Map();
-    appHeaders.map(
-      elem => {
-        appHeaderStates.set(elem, false);
-      }
-    );
-    appHeaderStates.set(appHeaders[1], true);
+    const { navItems, apMsg } = Lessee;
+
     return (
       <div>
         {/* 二级导航 */}
         <InwardNav baseLocateTo="lessee" imgNavBG="lessee导航条背景" navItems={navItems} />
 
         {/* 第0屏 */}
-        <LesseeBG appHeaderStates={ appHeaderStates }/>
+        <LesseeBG />
         {/* 第1屏 */}
         <DivSection name={navItems[0]} className="divSection">
-          <LesseeApMap/>
+          <LesseeApMap />
         </DivSection>
         {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">
@@ -57,10 +51,6 @@ class Lessee extends React.Component {
         </DivSection>
         {/* 第3屏 */}
         <DivSection name={navItems[2]} className="divSection">
-          <LesseePortal/>
-        </DivSection>
-        {/* 第4屏 */}
-        <DivSection name={navItems[3]} className="divSection">
           <LesseeMonitor>
             {this.props.children}
           </LesseeMonitor>

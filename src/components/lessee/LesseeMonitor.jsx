@@ -6,6 +6,7 @@ import React from 'react';
 import Image from '../common/Image';
 import {Link} from 'react-router';
 import LesseeMonitorAll from './LesseeMonitorAll';
+import PartingLine from '../common/PartingLine';
 import './style/lesseeMonitor.scss';
 /**
  * @class             租户中心第4屏的监控中心
@@ -23,7 +24,12 @@ class LesseeMonitor extends React.Component {
           textAlign:"center"
         }}
       >
-        <Image locateTo="lessee" imgName="监控中心分割线"/>
+        <PartingLine
+          useImgSource={{
+            locateTo: "lessee",
+            imgName: "监控中心分割线"
+          }}
+        />
         <div className="lesseemonitor-menu">
           <ul>
             <li><Link activeClassName="active" to='/lessee/monitorAll'>全部</Link></li>

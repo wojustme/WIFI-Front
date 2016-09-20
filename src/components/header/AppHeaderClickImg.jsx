@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/common/SelectFlagImg.jsx
+ * src/components/common/AppHeaderClickImg.jsx
  */
 import React from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
@@ -11,7 +11,7 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  * @copyright         城云科技
  * @version           0.0.1
  */
-class SelectFlagImg extends React.Component {
+class AppHeaderClickImg extends React.Component {
   render() {
     const { locateTo, imgName, isSelected, cursorStyle, style } = this.props;
     let selectFlag = isSelected ? "_selected" : "";
@@ -27,9 +27,15 @@ class SelectFlagImg extends React.Component {
       <img
         src={url}
         style={styleTmp}
+        onClick={
+          e => {
+            if(!isSelected && cursorStyle == "pointer")
+              this.props.clickHeaderItem(imgName);
+          }
+        }
       />
     );
   }
 }
 
-export { SelectFlagImg as default };
+export { AppHeaderClickImg as default };
