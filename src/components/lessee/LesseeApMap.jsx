@@ -5,6 +5,7 @@
 import React from 'react';
 import Image from '../common/Image';
 import BaiduMap from '../common/BaiMap';
+import PartingLine from '../common/PartingLine';
 /**
  * @class             租户中心第1屏的AP地图分布组件
  * @author            xurenhe
@@ -34,9 +35,13 @@ class LesseeApMap extends React.Component {
           textAlign:"center"
         }}
       >
-        <Image locateTo="lessee" imgName="ap分布分割线"/>
-        <div style={{height:"60px"}} />
-        <BaiduMap id="apmap" apData={apData}/>
+        <PartingLine
+          useImgSource={{
+            locateTo: "lessee",
+            imgName: "ap分布分割线"
+          }}
+        />
+        <BaiduMap id="apmap" apData={apData} className=""/>
       </div>
     );
   }

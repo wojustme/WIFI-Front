@@ -15,7 +15,6 @@ class LesseeMonitorAnalysis extends React.Component{
 		fetch('http://localhost:9992/data/common/psgFlow.json').then(res=>{
 			return res.json()
 		}).then(data=>{
-			console.log(data);
 			let psgFlowChart =  this.psgFlow.getEchartsInstance();
 			psgFlowChart.setOption({
 				xAxis:{

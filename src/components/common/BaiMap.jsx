@@ -1,5 +1,5 @@
 /*
-* @Author: LiuLei	
+* @Author: LiuLei
 * @Date:   2016-08-22 14:00:56
 * @Last Modified by:   Administrator
 * @Function:Baidu地图组件用于AP分布
@@ -40,8 +40,8 @@ class BaiDuMap extends React.Component{
 		// 2.创建点标注
 		apData.forEach((data)=>{
 			let lng = data.lng,  //经纬度
-			    lat =  data.lat, 
-			    marker = new BMap.Marker(new BMap.Point(lng, lat)); 
+			    lat =  data.lat,
+			    marker = new BMap.Marker(new BMap.Point(lng, lat));
 			this.map.addOverlay(marker);
 			let infoWindow = new BMap.InfoWindow(`lng:${lng}<br/>lat:${lat}<br/>count:${data.count}`);
 			//3.鼠标事件
@@ -52,24 +52,29 @@ class BaiDuMap extends React.Component{
 				marker.closeInfoWindow(infoWindow);
 			});
 		})
-		
+
 		//热力图
 		let heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
 		this.map.addOverlay(heatmapOverlay);
 		heatmapOverlay.setDataSet({data:apData,max:100});
 		heatmapOverlay.show();
-		
+
 	}
 	render(){
+    const { className } = this.props;
+    console.log(className);
 		return(
-			<div id="BaiDuMap" style={{
-	          height: 700,
-	          width:"80%",
-	          marginLeft: "auto",
-              marginRight: "auto",
-	          textAlign:"center"
-	        }}>
-				
+			<div
+        id="BaiDuMap"
+        style={{
+          height: 500,
+          width:"80%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          textAlign:"center"
+        }}
+          className={className}
+        >
 			</div>
 		)
 	}
