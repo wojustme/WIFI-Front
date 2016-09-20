@@ -24,6 +24,10 @@ class LesseeMonitor extends React.Component {
           textAlign:"center"
         }}
       >
+<<<<<<< HEAD
+        <Image locateTo="lessee" imgName="监控中心分割线"/>
+        <div className="lesseeMonitor-menu">
+=======
         <PartingLine
           useImgSource={{
             locateTo: "lessee",
@@ -31,6 +35,7 @@ class LesseeMonitor extends React.Component {
           }}
         />
         <div className="lesseemonitor-menu">
+>>>>>>> 31d2e2ddfb640225d0c65e7f1c8b8ac8786aaa0c
           <ul>
             <li><Link activeClassName="active" to='/lessee/monitorAll'>全部</Link></li>
             <li>|</li>

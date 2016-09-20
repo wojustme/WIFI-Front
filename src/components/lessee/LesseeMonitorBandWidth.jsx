@@ -99,12 +99,12 @@ class LesseeMonitorBandWidth extends React.Component{
 		            sampling: 'average',
 		            itemStyle: {
 		                normal: {
-		                    color: ['#85CECC']
+		                    color: ['#78B8F9']
 		                }
 		            },
 		            areaStyle: {
 		                normal: {
-		                    color: ['#C8F0EE']
+		                    color: ['#78B8F9']
 		                }
 		            },
 		            data: data
@@ -117,12 +117,12 @@ class LesseeMonitorBandWidth extends React.Component{
 		            sampling: 'average',
 		            itemStyle: {
 		                normal: {
-		                    color: ['#B699BF']
+		                    color: ['#39F486']
 		                }
 		            },
 		            areaStyle: {
 		                normal: {
-		                    color: ['#C8C7DF']
+		                    color: ['#39F486']
 		                }
 		            },
 		            data: data

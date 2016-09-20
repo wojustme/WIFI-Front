@@ -15,7 +15,7 @@ class LesseeMonitorAPAlarm extends React.Component{
 		let {styleConfig}=this.props;
 		styleConfig=(styleConfig?styleConfig:{width:360,height:350});
 		const option = {
-			color: ['#B8ACC9','#846EA0'],
+			color: ['#78B8F9','#39F486'],
 		    title : {
 		    	top:'3%',
 		        text: 'AP预警',
@@ -30,9 +30,10 @@ class LesseeMonitorAPAlarm extends React.Component{
 		        formatter: "{a} <br/>{b} : {c} ({d}%)"
 		    },
 		    legend: {
-		    	top:'86%',
+		    	//top:'86%',
 		        orient : 'horizontal',
 		        x : 'center',
+		        bottom:'1%',
 		        y:'bottom',
 		        data:['正常','故障']
 		    },

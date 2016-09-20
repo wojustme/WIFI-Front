@@ -19,24 +19,22 @@ class LesseeMonitorAll extends React.Component{
 				<div style={{float:"left"}}>
 					{/*AP告警监控*/}
 					<div style={{float:"left",marginLeft:150}}>
-						<LesseeMonitorAPAlarm styleConfig={{width:167,height:162}}/>
+						<LesseeMonitorAPAlarm styleConfig={{width:132,height:122}}/>
 					</div>
 					{/*SSID用户数和比例*/}
-					<div style={{float:"left",marginLeft:35}}>
-						<LesseeMonitorSSID styleConfig={{width:167,height:162}}/>
+					<div style={{float:"left",marginLeft:15}}>
+						<LesseeMonitorSSID styleConfig={{marginLeft:50,width:142,height:122}}/>
 					</div>
-					{/*清除浮动*/}
-					<div style={{clear:"both"}}></div>
 					{/*一天中的用户统计*/}
-					<div style={{float:"left",marginLeft:150,marginTop:35}}>
-						<LesseeMonitorUserCount styleConfig={{width:306,height:140}}/>
+					<div style={{clear:"both",float:"left",marginLeft:150,marginTop:10}}>
+						<LesseeMonitorUserCount styleConfig={{width:482,height:169}}/>
 					</div>
 					{/*一天中的带宽统计*/}
-					<div style={{float:"left",marginLeft:28,marginTop:35}}>
-						<LesseeMonitorBandWidth styleConfig={{width:306,height:140}}/>
+					<div style={{clear:"both",float:"left",marginLeft:150,marginTop:10}}>
+						<LesseeMonitorBandWidth styleConfig={{width:482,height:155}}/>
 					</div>
 				</div>
-				<div style={{float:"left",marginLeft:22}}>
+				<div style={{float:"left",marginLeft:15}}>
 					<LesseeMonitorAnalysis/>
 				</div>
 				{/*清除浮动*/}

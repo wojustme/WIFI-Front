@@ -10,6 +10,7 @@ import LesseeApMsg from '../../components/lessee/LesseeApMsg';
 import LesseeMonitor from '../../components/lessee/LesseeMonitor';
 import InwardNav from '../../components/common/InwardNav';
 import DivSection from '../../components/common/DivSection';
+
 import { Events, scrollSpy  } from 'react-scroll';
 import './lessee.scss';
 /**
@@ -54,6 +55,7 @@ class Lessee extends React.Component {
             {this.props.children}
           </LesseeMonitor>
         </DivSection>
+        
       </div>
     );
   }
