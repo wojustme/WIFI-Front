@@ -12,6 +12,7 @@ import './OverWriteAntdStyle.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
+import Footer from '../components/common/Footer';
 class App extends React.Component {
   render() {
     return (
@@ -23,6 +24,8 @@ class App extends React.Component {
         }}
       >
         { this.props.children }
+        {/*footer*/}
+        <Footer/>
       </div>
     );
   }

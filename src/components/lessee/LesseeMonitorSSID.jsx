@@ -13,9 +13,10 @@ class LesseeMonitorSSID extends React.Component{
 	}
 	render(){
 		let {styleConfig}=this.props;
-		styleConfig=(styleConfig?styleConfig:{width:360,height:350});
+		styleConfig=(styleConfig?styleConfig:{marginLeft:50,width:360,height:350});
+		let {marginLeft,...styleConfigT}=styleConfig;
 		const optionColumn = {
-		    color: ['#937BB2'],
+		    color: ['#78B8F9'],
 		    title : {
 		    	top:'3%',
 		        text: 'SSID用户数',
@@ -84,7 +85,7 @@ class LesseeMonitorSSID extends React.Component{
 		};
 
 		const optionPie = {
-			color: ['#C6BFD3','#937BB2','#7D6797'],
+			color: ['#78B8F9','#39F486','#7D6797'],
 		    title : {
 		    	top:'3%',
 		        text: 'SSID用户比例',
@@ -99,8 +100,9 @@ class LesseeMonitorSSID extends React.Component{
 		        formatter: "{a} <br/>{b} : {c} ({d}%)"
 		    },
 		    legend: {
-		    	top:'86%',
+		    	//top:'86%',
 		        orient : 'horizontal',
+		        bottom:'1%',
 		        x : 'center',
 		        y : 'bottom',
 		        data:['正常','故障']
@@ -147,9 +149,9 @@ class LesseeMonitorSSID extends React.Component{
 		};
 		return(
 			<div>
-				<div  style={{width:styleConfig.width*2+102,margin:"0 auto",border:"1px solid #D3D3D3"}}>
-					<ReactEcharts option = {optionColumn} style={{float:"left",...styleConfig}} />
-					<ReactEcharts option = {optionPie} style={{float:"left",marginLeft:100,...styleConfig}}/>
+				<div  style={{width:styleConfig.width*2+marginLeft+2,margin:"0 auto",border:"1px solid #D3D3D3"}}>
+					<ReactEcharts option = {optionColumn} style={{float:"left",...styleConfigT}} />
+					<ReactEcharts option = {optionPie} style={{float:"left",marginLeft,...styleConfigT}}/>
 					<div style={{clear:"both"}}></div>
 				</div>
 			</div>

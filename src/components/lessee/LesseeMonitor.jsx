@@ -24,7 +24,7 @@ class LesseeMonitor extends React.Component {
         }}
       >
         <Image locateTo="lessee" imgName="监控中心分割线"/>
-        <div className="lesseemonitor-menu">
+        <div className="lesseeMonitor-menu">
           <ul>
             <li><Link activeClassName="active" to='/lessee/monitorAll'>全部</Link></li>
             <li>|</li>

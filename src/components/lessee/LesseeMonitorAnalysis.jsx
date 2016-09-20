@@ -23,7 +23,10 @@ class LesseeMonitorAnalysis extends React.Component{
 				},
 				series:[
 					{
-						data:data.data
+						data:data.data1
+					},
+					{
+						data:data.data2
 					}
 				]
 			});
@@ -33,10 +36,11 @@ class LesseeMonitorAnalysis extends React.Component{
 
 	}
 	render(){
-		let option = {
-			color:['#517499'],
+		let optionLine = {
+			color:['#517499','#38F486'],
 		    title: {
-		        text: '实时客流',
+		        //text: '实时客流',
+		        x:'center',
 		        textStyle:{
 		        	color:'#FFF',
 		        	fontWeight:'normal',
@@ -47,8 +51,8 @@ class LesseeMonitorAnalysis extends React.Component{
 		        trigger: 'axis'
 		    },
 		    legend: {
-		    	x:'right',
-		        data:['客流变化'],
+		    	x:'left',
+		        data:['累计注册人数','累计客流人数'],
 		        textStyle:{
 		        	color:'#FFF'
 		        }
@@ -87,7 +91,6 @@ class LesseeMonitorAnalysis extends React.Component{
 	            }
 		    },
 		    grid:{
-		    	//show:true,
 		    	top:'20%',
 		    	left: '0%',
 		        right: '4%',
@@ -96,20 +99,103 @@ class LesseeMonitorAnalysis extends React.Component{
 		    },
 		    series: [
 		        {
-		            name:'客流变化',
+		            name:'累计注册人数',
 		            type:'line',
+		            symbol: 'rect',
+		            data:[]
+		        },
+		        {
+		            name:'累计客流人数',
+		            type:'line',
+		            symbol: 'rect',
 		            data:[]
 		        }
 		    ]
 		};
-
+		let optionColumn = {
+		    color: ['#78B8F9','#38F486'],
+		    title : {
+		    	top:'3%',
+		        //text: 'SSID用户数',
+		        x:'center',
+		        textStyle:{//字体
+		        	color:'#FFF',
+		        	fontWeight:'normal',
+		        	fontSize:14
+		        }
+		    },
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		    	top:'25%',
+		        left: '3%',
+		        right: '0%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    legend: {
+		    	x:'left',
+		        data:['注册人数','客流人数'],
+		        textStyle:{
+		        	color:'#FFF'
+		        }
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLine:{
+			        	lineStyle:{
+			        		color:'#517499'
+			        	}
+			        }
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            axisLine:{
+		        		lineStyle:{
+			        		color:'#517499'
+			        	}
+			        },
+			        splitLine: {
+		                show: true,
+		                lineStyle:{
+		                	color:'#517499'
+		                }
+		            }
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'注册人数',
+		            type:'bar',
+		            //barWidth: '60%',
+		            data:[10, 52, 200, 334, 390, 330, 220]
+		        },
+		        {
+		            name:'客流人数',
+		            type:'bar',
+		            //barWidth: '60%',
+		            data:[12, 59, 275, 355, 453, 356, 279]
+		        }
+		    ]
+		};
 		return(
-			<div className='lesseeMonitorAnalysis'>
+			<div className='lesseeMonitorAnalysis-box'>
 				{/*第1行*/}
 				<Row>
 					<Col span={12} className='numCount'>
 						<Row><Col span={24}>
-							<span style={{fontSize:24}}>3251</span>
+							<span style={{fontSize:32}}>3251</span>
 						</Col></Row>
 						<Row><Col span={24}>
 							<span>当天累计人数(个)</span>
@@ -117,7 +203,7 @@ class LesseeMonitorAnalysis extends React.Component{
 					</Col>
 					<Col span={12} className='numCount'>
 						<Row><Col>
-							<span style={{fontSize:24}}>3251</span>
+							<span style={{fontSize:32}}>3251</span>
 						</Col></Row>
 						<Row><Col>
 							<span>本月累计人数(个)</span>
@@ -127,39 +213,41 @@ class LesseeMonitorAnalysis extends React.Component{
 				{/*第2行*/}
 				<Row>
 					<Col span={24} className='passengerFlowChart'>
-						<ReactEcharts ref={ref=>this.psgFlow=ref} option={option} style={{height:150}}/>
+						<ReactEcharts ref={ref=>this.psgFlow=ref} option={optionLine} style={{height:152}}/>
 					</Col>
 				</Row>
 				{/*第3行*/}
 				<Row>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:24}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
-					</Col>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:24}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
-					</Col>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:24}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+					<Col span={24} className='passengerFlowChart'>
+						<ReactEcharts option = {optionColumn} style={{height:152}} />
 					</Col>
 				</Row>
 				{/*第4行*/}
 				<Row>
-					<Col span={24} className='passengerFlowChart'>客流分布</Col>
+					<Col span={8} className='numCount'>
+						<Row><Col span={24}>
+							<span style={{fontSize:32}}>3251</span>
+						</Col></Row>
+						<Row><Col span={24}>
+							<span>当天累计人数(个)</span>
+						</Col></Row>
+					</Col>
+					<Col span={8} className='numCount'>
+						<Row><Col span={24}>
+							<span style={{fontSize:32}}>3251</span>
+						</Col></Row>
+						<Row><Col span={24}>
+							<span>当天累计人数(个)</span>
+						</Col></Row>
+					</Col>
+					<Col span={8} className='numCount'>
+						<Row><Col span={24}>
+							<span style={{fontSize:32}}>3251</span>
+						</Col></Row>
+						<Row><Col span={24}>
+							<span>当天累计人数(个)</span>
+						</Col></Row>
+					</Col>
 				</Row>
 			</div>
 		)
