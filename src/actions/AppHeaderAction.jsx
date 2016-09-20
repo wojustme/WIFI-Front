@@ -6,7 +6,7 @@ import * as AppHeaderTypes from '../constants/AppHeaderTypes';
 import { browserHistory } from 'react-router'
 
 /**
- * 导航菜单的名称
+ * 导航菜单的名称映射变量
  * @type {Map}
  */
 const navs = new Map();

@@ -55,9 +55,14 @@ class LesseeApMsg extends React.Component {
           >
             <ApGroupContainer
               apGroupList={apGroupList}
-              clickApGroupItem = {
+              clickApGroupItem={
                 itemName => {
                   actions.clickApGroupItem(itemName);
+                }
+              }
+              addApGroup={
+                () => {
+                  actions.addApGroup();
                 }
               }
             />
