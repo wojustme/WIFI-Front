@@ -91,6 +91,9 @@ class LesseeApMsg extends React.Component {
               closeModal = {
                 () => actions.closeModal()
               }
+              doTableAction = {
+                (actionType, data) => actions.doTableAction(actionType, data)
+              }
             />
           </div>
         </div>

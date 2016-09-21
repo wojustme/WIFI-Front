@@ -10,97 +10,108 @@
 import { combineReducers } from 'redux';
 import * as LesseeTypes from '../constants/LesseeTypes';
 
-let bodyData = [{
-      "id": "01",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "02",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "03",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "04",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "05",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "06",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "07",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "08",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "09",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }, {
-      "id": "10",
-      "apName": "SC-NSYJ-AP1",
-      "apType": "AIR-CAP15321-H-K1",
-      "apMac": "84:b8:02:ac:f8:01",
-      "radioMac": "84:b8:02:ac:f8:01",
-      "apAddress": "中山一路1号",
-      "apLongitude": "120.01",
-      "apLatitude": "30.01"
-    }],
+let bodyData = {
+	"01": {
+		"id": "01",
+		"apName": "SC-NSYJ-AP01",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"02": {
+		"id": "02",
+		"apName": "SC-NSYJ-AP02",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"03": {
+		"id": "03",
+		"apName": "SC-NSYJ-AP03",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"04": {
+		"id": "04",
+		"apName": "SC-NSYJ-AP04",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"05": {
+		"id": "05",
+		"apName": "SC-NSYJ-AP05",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"06": {
+		"id": "06",
+		"apName": "SC-NSYJ-AP06",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"07": {
+		"id": "07",
+		"apName": "SC-NSYJ-AP07",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"08": {
+		"id": "08",
+		"apName": "SC-NSYJ-AP08",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"09": {
+		"id": "09",
+		"apName": "SC-NSYJ-AP09",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	},
+	"10": {
+		"id": "10",
+		"apName": "SC-NSYJ-AP10",
+		"apType": "AIR-CAP15321-H-K1",
+		"apMac": "84:b8:02:ac:f8:01",
+		"radioMac": "84:b8:02:ac:f8:01",
+		"apAddress": "中山一路1号",
+		"apLongitude": "120.01",
+		"apLatitude": "30.01"
+	}
+},
     headData = [{
       title: 'AP名称',
       dataIndex: 'apName'
@@ -132,6 +143,21 @@ let apGroupListData = [ "SC-DJX01", "SC-DJX02", "SC-DJX03", "SC-DJX04", "SC-DJX0
       "SC-DJX11", "SC-DJX12", "SC-DJX13", "SC-DJX14", "SC-DJX15",
       "SC-DJX16", "SC-DJX17", "SC-DJX18", "SC-DJX19", "SC-DJX20" ];
 
+let formLabel = {
+	id: "ID",
+	apName: "AP名称",
+	apType: "AP类型",
+	apMac: "AP-mac",
+	radioMac: "Radio-mac",
+	apAddress: "AP地址",
+	apLongitude: "AP经度",
+	apLatitude: "AP纬度"
+};
+let formData = {};
+let modalData = {
+	formLabel,
+	formData
+}
 /**
  * 该页面中内部导航操作
  * @method    navItems
@@ -167,7 +193,8 @@ let apMsgTable = (state = {
   operateOptions: ["edit"],
   operationsVisible: false,
   modalVisible: false,
-  modifyTableData: {}
+  modifyTableData: {},
+	modalData: modalData
 }, action) => {
   switch (action.type) {
     case LesseeTypes.LESSEEAPMSG_SUBMIT_APMSG_FORM:
@@ -199,12 +226,23 @@ let apMsgTable = (state = {
         operationsVisible: action.operationsVisible
       }
       break;
-    case LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL:
+    case LesseeTypes.LESSEEAPMSG_CLOSE_SHOWMODAL:
       return {
         ...state,
-        modalVisible: action.modalVisible
+        modalVisible: false
       }
       break;
+		case LesseeTypes.LESSEEAPMSG_DOTABLEACTION:
+			let modalData = {
+				...state.modalData,
+				formData: action.data
+			}
+	    return {
+	      ...state,
+	      modalVisible: true,
+				modalData
+	    }
+	    break;
     default:
       return state;
   }
@@ -244,7 +282,7 @@ Lessee
   -apMsg
     -apGroupList
     -apMsgTable
-      -bodyData             =>表格主体数据
+      -bodyData             =>表格主体数据，object*->id:{}
       -headData             =>表格头数据
       -pageInfo             =>表格的分页信息
         -totalPage
@@ -254,4 +292,7 @@ Lessee
       -operationsVisible    =>是否显示表格操作选项
       -modalVisible         =>是否显示模态框
       -modifyTableData      =>修改的table数据，object类型*
+			-modalData						=>模态框数据
+				-formLabel
+				-formData
  */

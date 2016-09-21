@@ -62,7 +62,6 @@ class BaiDuMap extends React.Component{
 	}
 	render(){
     const { className } = this.props;
-    console.log(className);
 		return(
 			<div
         id="BaiDuMap"

@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/common/Table.jsx
+ * src/components/common/TableWithAction.jsx
  */
 import React from 'react';
 import uuid from 'node-uuid';
@@ -14,7 +14,7 @@ import './Table.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class Table extends React.Component {
+class TableWithAction extends React.Component {
   constructor(props){
     super(props);
     const { headData, operateOptions } = this.props;
@@ -36,14 +36,15 @@ class Table extends React.Component {
     if(operationsVisible && !isEmptyArray(operateOptions))
       tableHead.push(<th key="operates">操作</th>)
     tableHead = <tr>{tableHead}</tr>;
-    let tableBody = bodyData.map(
-      rowElem => {
+
+    let tableBody = Object.keys(bodyData).map(
+      key => {
+        // 一行的数据
+        let rowElem = bodyData[key];
         let rowDataHtml = headData.map(
           elemObj => {
             return (
-              <td
-                key={elemObj['dataIndex']}
-              >
+              <td key={elemObj['dataIndex']}>
                 {rowElem[elemObj['dataIndex']]}
               </td>
             );
@@ -56,9 +57,9 @@ class Table extends React.Component {
                 <AImg
                   key={actionElem}
                   actionType={actionElem}
-                  rowId={rowElem["id"]}
+                  dataId={rowElem["id"]}
                   doAction={
-                    (actionType, rowId) => this.props.doAction(actionType, idToRowNum.get(rowId))
+                    (actionType, dataId) => this.props.doAction(actionType, bodyData[dataId])
                   }
                 />
               );
@@ -67,9 +68,7 @@ class Table extends React.Component {
           rowDataHtml.push(<td key="action">{operateLinks}</td>);
         }
         return (
-          <tr
-            key={rowElem['id']}
-          >
+          <tr key={rowElem['id']}>
             {rowDataHtml}
           </tr>
         );
@@ -88,4 +87,4 @@ class Table extends React.Component {
   }
 }
 
-export { Table as default };
+export { TableWithAction as default };
