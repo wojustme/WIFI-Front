@@ -9,3 +9,4 @@
  */
 export { AppHeader } from './AppHeaderReducer';
 export { Lessee } from './LesseeReducer';
+export { Portal } from './PortalReducer';

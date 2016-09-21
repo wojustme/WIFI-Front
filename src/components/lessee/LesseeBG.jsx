@@ -15,7 +15,6 @@ class LesseeBG extends React.Component {
 
   // 组件渲染
   render() {
-    const { appHeaderStates } = this.props;
     return (
       <div>
         <Image locateTo='lessee' imgName='租户中心背景'/>

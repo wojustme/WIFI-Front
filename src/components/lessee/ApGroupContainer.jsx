@@ -67,6 +67,7 @@ class ApGroupContainer extends React.Component {
             style={{
               float: "right",
               cursor: "pointer",
+              color: "rgb(255, 255, 255)",
               marginRight: "10px"
             }}
             onClick={e => this.props.addApGroup()}

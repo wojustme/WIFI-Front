@@ -37,7 +37,12 @@ class Lessee extends React.Component {
     return (
       <div>
         {/* 二级导航 */}
-        <InwardNav baseLocateTo="lessee" imgNavBG="lessee导航条背景" navItems={navItems} />
+        <InwardNav
+          myLocateTo="common"
+          elemLocateTo="lessee"
+          imgNavBG="二级导航条背景"
+          navItems={navItems}
+        />
 
         {/* 第0屏 */}
         <LesseeBG />
@@ -55,7 +60,7 @@ class Lessee extends React.Component {
             {this.props.children}
           </LesseeMonitor>
         </DivSection>
-        
+
       </div>
     );
   }

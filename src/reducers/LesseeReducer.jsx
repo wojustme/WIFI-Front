@@ -152,7 +152,7 @@ let navItems = (state = ["ap分布", "ap信息", "监控中心"], action) => {
 /**
  * ap信息中的右侧table操作
  * @method    apMsgTable
- * @param     {array}     state   导航选项值
+ * @param     {array}     state   table数据树
  * @param     {object}    action  触发的action值
  * @return    {object}            返回最新的状态树
  * @author    xurenhe

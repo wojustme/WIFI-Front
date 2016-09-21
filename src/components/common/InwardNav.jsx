@@ -17,7 +17,7 @@ import { Affix } from 'antd';
 class InwardNav extends React.Component {
 
   render() {
-    const { baseLocateTo, imgNavBG, navItems } = this.props;
+    const { myLocateTo, elemLocateTo, imgNavBG, navItems } = this.props;
     let items = navItems.map(
       elem => {
         return (
@@ -33,7 +33,7 @@ class InwardNav extends React.Component {
               }
             }
           >
-            <SelectFlagImg locateTo={baseLocateTo} imgName={elem} cursorStyle="pointer" />
+            <SelectFlagImg locateTo={elemLocateTo} imgName={elem} cursorStyle="pointer" />
           </ImgLink>
         );
       }
@@ -49,7 +49,7 @@ class InwardNav extends React.Component {
       >
         <Affix>
           <SelectFlagImg
-            locateTo={baseLocateTo}
+            locateTo={myLocateTo}
             imgName={imgNavBG}
           />
           <div

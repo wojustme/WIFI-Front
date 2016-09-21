@@ -7,6 +7,7 @@ import Header from './header/AppHeader';
 import Footer from './footer/Footer';
 import 'antd/dist/antd.min.css';
 import './OverWriteAntdStyle.scss';
+import '../style/scss/app.scss';
 /**
  * @class 项目最底层容器
  * @author            xurenhe
