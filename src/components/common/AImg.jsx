@@ -23,11 +23,11 @@ class AImg extends React.Component {
   }
   render() {
     const { actionTypes } = this.state;
-    const { actionType, rowId } = this.props;
+    const { actionType, dataId } = this.props;
     return (
       <a
         onClick={
-          e => this.props.doAction(actionType, rowId)
+          e => this.props.doAction(actionType, dataId)
         }
       >
         <img

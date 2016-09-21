@@ -14,9 +14,12 @@ import * as LesseeTypes from '../constants/LesseeTypes';
  * @version                   0.0.1
  */
 export let submitApMsgForm = (modifyData) => {
-  return {
-    type: LesseeTypes.LESSEEAPMSG_SUBMIT_APMSG_FORM,
-    modifyData
+  return dispatch => {
+    dispatch(closeModal());
+    return dispatch({
+      type: LesseeTypes.LESSEEAPMSG_SUBMIT_APMSG_FORM,
+      modifyData
+    });
   }
 }
 /**
@@ -33,27 +36,12 @@ export let clickApGroupItem = (itemName) => {
   let testNum = itemName.substring(itemName.length - 1);
   return dispatch => {
     // 异步
-    dispatch(testAsync());
+    dispatch(closeModal());
     return fetch(`http://localhost:9992/data/lessee/grid${testNum}.json`)
       .then(response => response.json())
       .then(json => {
         dispatch(updateApMsgTable(json));
       })
-  }
-}
-/**
- * 测试异步
- * @method    testAsync
- * @return    {object}   action数据流
- * @author  xurenhe
- * @date      2016-09-19
- * @copyright            城云科技
- * @version              0.0.1
- */
-export let testAsync = () => {
-  console.log("testAsync");
-  return {
-    type : 'testAsync'
   }
 }
 /**
@@ -84,6 +72,7 @@ export let updateApMsgTable = (tableData) => {
  */
 export let changeApMsgTablePage = (page) => {
   return dispatch => {
+    dispatch(closeModal());
     return fetch('http://localhost:9992/data/lessee/grid0.json')
       .then(response => response.json())
       .then(json => {
@@ -105,6 +94,7 @@ export let clickOperateTable = (operationsVisible, modifyTableData) => {
   // 编辑=>false 保存=>true
   // 异步方式
   return dispatch => {
+    dispatch(closeModal());
     if (operationsVisible) {
       dispatch(syncApMsgTable(modifyTableData));
     }
@@ -122,7 +112,6 @@ export let clickOperateTable = (operationsVisible, modifyTableData) => {
  * @version                  0.0.1
  */
 export let syncApMsgTable = (modifyTableData) => {
-  console.log("同步数据");
   return {
     type: LesseeTypes.LESSEEAPMSG_SYNC_APMSG_TABLE_DATA,
     modifyTableData
@@ -139,26 +128,10 @@ export let syncApMsgTable = (modifyTableData) => {
  * @version                    0.0.1
  */
 export let isShowOperations = (operationsVisible) => {
-  console.log("是否显示action栏");
   let isShow = !operationsVisible;
   return {
     type: LesseeTypes.LESSEEAPMSG_IS_SHOW_OPERATION,
     operationsVisible: isShow
-  }
-}
-/**
- * 打开模态框
- * @method    openModal
- * @return    {[type]}   action数据流
- * @author  xurenhe
- * @date      2016-09-19
- * @copyright            城云科技
- * @version              0.0.1
- */
-export let openModal = () => {
-  return {
-    type: LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL,
-    modalVisible: true
   }
 }
 /**
@@ -172,14 +145,40 @@ export let openModal = () => {
  */
 export let closeModal = () => {
   return {
-    type: LesseeTypes.LESSEEAPMSG_IS_SHOWMODAL,
-    modalVisible: false
+    type: LesseeTypes.LESSEEAPMSG_CLOSE_SHOWMODAL
   }
 }
-
+/**
+ * 点击添加AP分组操作
+ * @method    addApGroup
+ * @author  xurenhe
+ * @date      2016-09-21
+ * @copyright            城云科技
+ * @version              0.0.1
+ */
 export let addApGroup = () => {
   console.log("LESSEEAPMSG_ADDAPGROUP");
+  return dispatch => {
+    dispatch(closeModal());
+    return {
+      type: LesseeTypes.LESSEEAPMSG_ADDAPGROUP
+    }
+  }
+}
+/**
+ * 点击表格action栏操作
+ * @method    doTableAction
+ * @param     {string}      actionType action栏操作类型
+ * @param     {object}      data       需要操作的数据
+ * @return    {object}                 action数据流
+ * @author  xurenhe
+ * @date      2016-09-21
+ * @copyright               城云科技
+ * @version                 0.0.1
+ */
+export let doTableAction = (actionType, data) => {
   return {
-    type: LesseeTypes.LESSEEAPMSG_ADDAPGROUP
+    type: LesseeTypes.LESSEEAPMSG_DOTABLEACTION,
+    data
   }
 }

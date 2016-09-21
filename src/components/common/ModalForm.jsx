@@ -19,32 +19,23 @@ class ModalForm extends React.Component {
     super(props);
     const { visible } = this.props;
     this.state={
-      visible: false,
-      confirmLoading: false,
-      modifyIndexs: []
+      visible: false
     };
   }
   handleOk() {
     let modifyData = this.getFieldsData();
-    this.setState({
-      confirmLoading: true
-    });
-    setTimeout(() => {
-      this.setState({
-        confirmLoading: false
-      });
-      this.handleClose();
-    }, 500);
-    this.props.returnData(modifyData);
+    // this.handleClose(); 为了提高性能，放入action操作
+    this.props.submitForm(modifyData);
   }
   handleCancel() {
     this.handleClose();
   }
   handleClose() {
-    this.props.closeModal();
+    this.setState({
+      visible: false
+    })
   }
   getFieldsData() {
-    const { modifyIndexs } =this.state;
     const { formData } = this.props;
     let fieldsData = {};
     for (let elemKey in formData) {
@@ -52,21 +43,26 @@ class ModalForm extends React.Component {
     }
     return fieldsData;
   }
+  componentWillReceiveProps(nextProps) {
+    const { visible } = nextProps;
+    this.setState({
+      visible
+    })
+  }
   render() {
-    const { confirmLoading } = this.state;
-    const { modalLabel, formData, visible } = this.props;
+    const { confirmLoading, visible } = this.state;
+    const { formLabel, formData } = this.props;
     const FormItem = Form.Item;
     let formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
     };
-    let modifyIndexs = [];
     let form = [];
     for (let elemKey in formData)
       form.push(
         <FormItem
           key={elemKey}
-          label={modalLabel[elemKey]}
+          label={formLabel[elemKey]}
           {...formItemLayout}
           style={{
             marginBottom:"8px"
@@ -79,7 +75,7 @@ class ModalForm extends React.Component {
           />
         </FormItem>
       );
-    form = <Form key={formData['id']}>{form}</Form>;
+    form = <Form key={uuid.v4()}>{form}</Form>;
     return (
       <Modal
         ref="modalform"
@@ -87,7 +83,6 @@ class ModalForm extends React.Component {
         visible={visible}
         onOk={this.handleOk.bind(this)}
         onCancel={this.handleCancel.bind(this)}
-        confirmLoading={confirmLoading}
       >
         {form}
       </Modal>
