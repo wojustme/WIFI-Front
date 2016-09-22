@@ -2,7 +2,7 @@
 /**
  * src/components/common/AppHeaderClickImg.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
 /**
  * @class             显示是否被选中的图片组件
@@ -11,7 +11,7 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  * @copyright         城云科技
  * @version           0.0.1
  */
-class AppHeaderClickImg extends React.Component {
+class AppHeaderClickImg extends Component {
   render() {
     const { locateTo, imgName, isSelected, cursorStyle, style } = this.props;
     let selectFlag = isSelected ? "_selected" : "";

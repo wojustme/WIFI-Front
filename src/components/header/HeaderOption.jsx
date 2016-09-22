@@ -2,7 +2,7 @@
 /**
  * src/components/common/HeaderOption.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import AppHeaderClickImg from './AppHeaderClickImg';
 /**
  * @class             wifi项目的导航选项卡组件
@@ -11,7 +11,7 @@ import AppHeaderClickImg from './AppHeaderClickImg';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class HeaderOption extends React.Component {
+class HeaderOption extends Component {
   render() {
     let { imgName, isSelected } = this.props;
     return (

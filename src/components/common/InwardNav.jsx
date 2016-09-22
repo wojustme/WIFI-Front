@@ -2,7 +2,7 @@
 /**
  * src/components/common/InwardNav.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import SelectFlagImg from './SelectFlagImg';
 import ImgLink from './ImgLink';
 import Scroll, { scroller } from 'react-scroll';
@@ -14,7 +14,7 @@ import { Affix } from 'antd';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class InwardNav extends React.Component {
+class InwardNav extends Component {
 
   render() {
     const { myLocateTo, elemLocateTo, imgNavBG, navItems } = this.props;

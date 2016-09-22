@@ -2,7 +2,7 @@
 /**
  * src/components/lessee/LesseeApMsg.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import Image from '../common/Image';
 import ApGroupContainer from './ApGroupContainer';
 import ApMsgTable from './ApMsgTable';
@@ -18,10 +18,10 @@ import './style/ApMsg.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class LesseeApMsg extends React.Component {
+class LesseeApMsg extends Component {
   render() {
     const { apMsg, dispatch } = this.props;
-    const { apMsgTable, apGroupList } = apMsg;
+    const { apMsgTable, apGroup } = apMsg;
     const actions = bindActionCreators(LesseeActions, dispatch);
     return (
       <div
@@ -54,15 +54,15 @@ class LesseeApMsg extends React.Component {
             }}
           >
             <ApGroupContainer
-              apGroupList={apGroupList}
+              apGroup={apGroup}
               clickApGroupItem={
                 itemName => {
                   actions.clickApGroupItem(itemName);
                 }
               }
               addApGroup={
-                () => {
-                  actions.addApGroup();
+                (addApGroupData) => {
+                  actions.addApGroup(addApGroupData);
                 }
               }
             />

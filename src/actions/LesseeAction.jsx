@@ -186,6 +186,11 @@ let closeModal = () => {
     type: LesseeTypes.LESSEEAPMSG_CLOSE_SHOWMODAL
   }
 }
+let closeAddGroupModal = () => {
+  return {
+    type: LesseeTypes.LESSEEAPMSG_CLOSE_GROUPMODAL
+  }
+}
 /**
  * 点击添加AP分组操作
  * @method    addApGroup
@@ -195,9 +200,9 @@ let closeModal = () => {
  * @copyright            城云科技
  * @version              0.0.1
  */
-export let addApGroup = () => {
+export let addApGroup = (addApGroupData) => {
   return dispatch => {
-    dispatch(closeModal());
+    dispatch(closeAddGroupModal());
     return {
       type: LesseeTypes.LESSEEAPMSG_ADDAPGROUP
     }

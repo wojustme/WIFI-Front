@@ -2,7 +2,7 @@
 /**
  * src/components/common/AbleFlagImg.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
 /**
  * @class             显示是否失效的图片组件
@@ -11,7 +11,7 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  * @copyright         城云科技
  * @version           0.0.1
  */
-class AbleFlagImg extends React.Component {
+class AbleFlagImg extends Component {
   render() {
     const { locateTo, imgName, able, style, clickFun } = this.props;
     let ableFlag = able==false ? "_disable" : "";

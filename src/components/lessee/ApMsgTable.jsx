@@ -2,7 +2,7 @@
 /**
  * src/components/lessee/ApMsgTable.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import TableWithAction from '../common/TableWithAction';
 import ModalForm from '../common/ModalForm';
 import { Pagination, Button, Modal, Form, Input } from 'antd';
@@ -16,7 +16,7 @@ import * as LesseeActions from '../../actions/LesseeAction';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class ApMsgTable extends React.Component {
+class ApMsgTable extends Component {
   constructor(props){
     super(props);
     const { operationsVisible, modalVisible } = this.props;

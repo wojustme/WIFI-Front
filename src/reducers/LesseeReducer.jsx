@@ -268,15 +268,28 @@ let apMsgTable = (state = {
  * @copyright            城云科技
  * @version              0.0.1
  */
-let apGroupList = (state = apGroupListData, action) => {
+let apGroup = (state = {
+	apGroupListData,
+	modalVisible: false,
+	modalData: {
+		formLabel: {apGroupName:"分组名"},
+		formData: {apGroupName:""}
+	}
+}, action) => {
   switch (action.type) {
+		case LesseeTypes.LESSEEAPMSG_CLOSE_GROUPMODAL:
+			return {
+				...state,
+				modalVisible: false
+			}
+			break;
     default:
       return state;
   }
 }
 // 合并
 let apMsg = combineReducers({
-  apGroupList,
+  apGroup,
   apMsgTable
 })
 // 合并
@@ -290,7 +303,12 @@ SHOW STATE TREE:
 Lessee
   -navItems
   -apMsg
-    -apGroupList
+		-apGroup
+    	-apGroupList
+			-modalVisible					=>新添ap分组的模态框
+			-modalData						=>新添ap分组模态框数据
+				-formLabel
+				-formData
     -apMsgTable
       -bodyData             =>表格主体数据，object*->id:{}
       -headData             =>表格头数据

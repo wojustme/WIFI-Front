@@ -2,7 +2,7 @@
 /**
  * src/components/common/Table.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import './Table.scss';
 /**
  * @class             表格基本组件，无分页功能
@@ -11,7 +11,7 @@ import './Table.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class Table extends React.Component {
+class Table extends Component {
   constructor(props){
     super(props);
     this.state = {
