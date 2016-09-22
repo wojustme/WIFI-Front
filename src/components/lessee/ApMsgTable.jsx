@@ -60,8 +60,9 @@ class ApMsgTable extends React.Component {
             }}
           >
             <Pagination
-              defaultCurrent={1}
-              total={20}
+              current={pageInfo.currentPage}
+              total={pageInfo.totalPage}
+              pageSize={pageInfo.pageSize}
               onChange={
                 page => this.props.changePage(page)
               }
