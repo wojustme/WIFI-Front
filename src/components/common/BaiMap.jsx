@@ -66,11 +66,12 @@ class BaiDuMap extends React.Component{
 			<div
         id="BaiDuMap"
         style={{
-          height: 500,
+          height: 600,
           width:"80%",
           marginLeft: "auto",
           marginRight: "auto",
-          textAlign:"center"
+          textAlign:"center",
+          border:"2px solid #D3D3D3"
         }}
           className={className}
         >
