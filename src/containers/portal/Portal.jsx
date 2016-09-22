@@ -32,7 +32,7 @@ class Portal extends React.Component {
 
     return (
       <div>
-        // 二级导航 
+        {/* 二级导航 */}
         <InwardNav
           myLocateTo="common"
           elemLocateTo="portal"
@@ -40,15 +40,15 @@ class Portal extends React.Component {
           navItems={navItems}
         />
 
-        // 第0屏
+        {/* 第0屏 */}
         <PortalBG />
-        // 第1屏
+        {/* 第1屏 */}
         <DivSection name={navItems[0]} className="divSection">
         </DivSection>
-        // 第2屏
+        {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">
         </DivSection>
-        // 第3屏
+        {/* 第3屏 */}
         <DivSection name={navItems[2]} className="divSection">
         </DivSection>
       </div>

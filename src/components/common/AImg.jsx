@@ -2,7 +2,7 @@
 /**
  * src/components/common/AImg.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
 /**
  * @class             a链接中图片组件
@@ -11,7 +11,7 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  * @copyright         城云科技
  * @version           0.0.1
  */
-class AImg extends React.Component {
+class AImg extends Component {
   constructor(props){
     super(props);
     let url = IMG_SERVER + 'common/';

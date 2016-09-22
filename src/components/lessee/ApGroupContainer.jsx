@@ -2,8 +2,9 @@
 /**
  * src/components/lessee/ApGroupContainer.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import ApGroupItem from './ApGroupItem';
+import ModalForm from '../common/ModalForm';
 /**
  * @class             ap分组信息容器
  * @author            xurenhe
@@ -11,20 +12,29 @@ import ApGroupItem from './ApGroupItem';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class ApGroupContainer extends React.Component {
+class ApGroupContainer extends Component {
   constructor(props) {
     super(props);
-    const { apGroupList } = this.props;
-
-    let selectData = apGroupList[0];
+    const { apGroup } = this.props;
+    const { apGroupListData, modalVisible, modalData } = apGroup;
+    let selectData = apGroupListData[0];
     this.state = {
-      apGroupList: apGroupList,
-      selectData: selectData
+      apGroupListData,
+      selectData,
+      modalVisible,
+      modalData
     }
   }
+  componentWillReceiveProps(nextProps) {
+    const { modalVisible } = nextProps.apGroup;
+    this.setState({
+      modalVisible
+    })
+  }
   render() {
-    const { apGroupList, selectData } = this.state;
-    let apGroupItems = apGroupList.map(
+    const { apGroupListData, selectData, modalVisible, modalData } = this.state;
+    const { formLabel, formData } = modalData;
+    let apGroupItems = apGroupListData.map(
       elem => {
         return elem === selectData
           ? <ApGroupItem
@@ -70,7 +80,14 @@ class ApGroupContainer extends React.Component {
               color: "rgb(255, 255, 255)",
               marginRight: "10px"
             }}
-            onClick={e => this.props.addApGroup()}
+            onClick={
+              //e => this.props.addApGroup()
+              e => {
+                this.setState({
+                  modalVisible: true
+                })
+              }
+            }
           >
             +
           </span>
@@ -84,6 +101,14 @@ class ApGroupContainer extends React.Component {
         >
           {apGroupItems}
         </div>
+        <ModalForm
+          visible={modalVisible}
+          formLabel={formLabel}
+          formData={formData}
+          submitForm={
+            (addApGroupData) => {this.props.addApGroup(addApGroupData)}
+          }
+        />
       </div>
     );
   }

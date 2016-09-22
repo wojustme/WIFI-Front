@@ -2,7 +2,7 @@
 /**
  * src/components/common/PartingLine.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import Image from './Image';
 /**
  * @class             分割线组件
@@ -11,7 +11,7 @@ import Image from './Image';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class PartingLine extends React.Component {
+class PartingLine extends Component {
   render() {
     const { useImgSource } = this.props;
     const { locateTo, imgName } = useImgSource;

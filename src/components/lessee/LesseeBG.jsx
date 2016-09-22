@@ -2,7 +2,7 @@
 /**
  * src/components/lessee/LesseeBG.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import Image from '../common/Image';
 /**
  * @class             租户中心第0屏的背景组件
@@ -11,7 +11,7 @@ import Image from '../common/Image';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class LesseeBG extends React.Component {
+class LesseeBG extends Component {
 
   // 组件渲染
   render() {

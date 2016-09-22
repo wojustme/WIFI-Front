@@ -2,7 +2,7 @@
 /**
  * src/components/common/Image.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import { IMG_SERVER } from '../../config/AppConfigure.jsx'
 /**
  * @class             显示图片组件
@@ -11,7 +11,7 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  * @copyright         城云科技
  * @version           0.0.1
  */
-class Image extends React.Component {
+class Image extends Component {
   render() {
     const { locateTo, imgName, cursorStyle, style } = this.props;
     let url = IMG_SERVER + locateTo + '/' + imgName + '.png';

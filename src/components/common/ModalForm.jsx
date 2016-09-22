@@ -3,7 +3,7 @@
  * src/components/common/ModalForm.jsx
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import uuid from 'node-uuid';
 import ReactDOM from 'react-dom';
 import { Button, Modal, Form, Input } from 'antd';
@@ -14,7 +14,7 @@ import { Button, Modal, Form, Input } from 'antd';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class ModalForm extends React.Component {
+class ModalForm extends Component {
   constructor(props) {
     super(props);
     const { visible } = this.props;

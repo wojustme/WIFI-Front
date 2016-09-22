@@ -40,13 +40,51 @@ export let clickApGroupItem = (itemName) => {
     return fetch(`http://localhost:9992/data/lessee/grid${testNum}.json`)
       .then(response => response.json())
       .then(json => {
-        dispatch(updateApMsgTable(json));
+        let pageInfo = {
+          totalPage: 50,
+    			currentPage: 1,
+    			pageSize: 10
+        };
+        dispatch(updateApMsgTable(json, pageInfo));
       })
   }
 }
 /**
- * 更新ap信息表格数据
+ * 更新表格控件包括分页、表格内部、编辑按钮
  * @method    updateApMsgTable
+ * @param     {object}         tableData 表格内部数据
+ * @param     {object}         pageInfo  表格分页信息
+ * @return    {function}                   dispatch触发函数
+ * @author  xurenhe
+ * @date      2016-09-22
+ * @copyright                  城云科技
+ * @version                    0.0.1
+ */
+let updateApMsgTable = (tableData, pageInfo) => {
+  return dispatch => {
+    dispatch(UpdateApMsgPaging(pageInfo));
+    return dispatch(updateApMsgTableData(tableData));
+  }
+}
+/**
+ * 更新分页控件信息
+ * @method    toDefaultApMsgPaging
+ * @param     {object}             pageInfo 分页信息
+ * @return    {object}                      action数据流
+ * @author  xurenhe
+ * @date      2016-09-22
+ * @copyright                      城云科技
+ * @version                        0.0.1
+ */
+let UpdateApMsgPaging = (pageInfo) => {
+  return {
+    type: LesseeTypes.LESSEEAPMSG_UPDATE_APMSG_PAGING,
+    pageInfo
+  }
+}
+/**
+ * 更新ap信息表格数据
+ * @method    updateApMsgTableData
  * @param     {String}         tableData table新数据
  * @return    {object}                   action数据流
  * @author  xurenhe
@@ -54,9 +92,9 @@ export let clickApGroupItem = (itemName) => {
  * @copyright                  城云科技
  * @version                    0.0.1
  */
-export let updateApMsgTable = (tableData) => {
+let updateApMsgTableData = (tableData) => {
   return {
-    type: LesseeTypes.LESSEEAPMSG_UPDATE_APMSG_TABLE,
+    type: LesseeTypes.LESSEEAPMSG_UPDATE_APMSG_TABLE_DATA,
     tableData
   }
 }
@@ -64,7 +102,7 @@ export let updateApMsgTable = (tableData) => {
  * 点击分页按钮刷新table数据
  * @method    changeApMsgTablePage
  * @param     {String}         tableData table新数据
- * @return    {object}                   action数据流
+ * @return    {function}                   dispatch触发函数
  * @author  xurenhe
  * @date      2016-09-19
  * @copyright                  城云科技
@@ -76,7 +114,7 @@ export let changeApMsgTablePage = (page) => {
     return fetch('http://localhost:9992/data/lessee/grid0.json')
       .then(response => response.json())
       .then(json => {
-        dispatch(updateApMsgTable(json));
+        dispatch(updateApMsgTable(json, {currentPage:page}));
       })
   }
 }
@@ -111,7 +149,7 @@ export let clickOperateTable = (operationsVisible, modifyTableData) => {
  * @copyright                城云科技
  * @version                  0.0.1
  */
-export let syncApMsgTable = (modifyTableData) => {
+let syncApMsgTable = (modifyTableData) => {
   return {
     type: LesseeTypes.LESSEEAPMSG_SYNC_APMSG_TABLE_DATA,
     modifyTableData
@@ -127,7 +165,7 @@ export let syncApMsgTable = (modifyTableData) => {
  * @copyright                  城云科技
  * @version                    0.0.1
  */
-export let isShowOperations = (operationsVisible) => {
+let isShowOperations = (operationsVisible) => {
   let isShow = !operationsVisible;
   return {
     type: LesseeTypes.LESSEEAPMSG_IS_SHOW_OPERATION,
@@ -143,23 +181,28 @@ export let isShowOperations = (operationsVisible) => {
  * @copyright            城云科技
  * @version              0.0.1
  */
-export let closeModal = () => {
+let closeModal = () => {
   return {
     type: LesseeTypes.LESSEEAPMSG_CLOSE_SHOWMODAL
+  }
+}
+let closeAddGroupModal = () => {
+  return {
+    type: LesseeTypes.LESSEEAPMSG_CLOSE_GROUPMODAL
   }
 }
 /**
  * 点击添加AP分组操作
  * @method    addApGroup
+ * @return    {function}                   dispatch触发函数
  * @author  xurenhe
  * @date      2016-09-21
  * @copyright            城云科技
  * @version              0.0.1
  */
-export let addApGroup = () => {
-  console.log("LESSEEAPMSG_ADDAPGROUP");
+export let addApGroup = (addApGroupData) => {
   return dispatch => {
-    dispatch(closeModal());
+    dispatch(closeAddGroupModal());
     return {
       type: LesseeTypes.LESSEEAPMSG_ADDAPGROUP
     }

@@ -2,7 +2,7 @@
 /**
  * src/components/common/Table.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import uuid from 'node-uuid';
 import { isEmptyArray } from '../../utils/OriginalJSUtil';
 import AImg from './AImg';
@@ -14,7 +14,7 @@ import './Table.scss';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class Table extends React.Component {
+class Table extends Component {
   constructor(props){
     super(props);
     const { headData, operateOptions } = this.props;

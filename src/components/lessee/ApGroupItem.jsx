@@ -2,7 +2,7 @@
 /**
  * src/components/lessee/ApGroupItem.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 
 /**
  * @class             ap分组信息中每个展示项
@@ -11,7 +11,7 @@ import React from 'react';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class ApGroupItem extends React.Component {
+class ApGroupItem extends Component {
   constructor(props) {
     super(props);
   }

@@ -2,7 +2,7 @@
 /**
  * src/components/common/DivSection.jsx
  */
-import React from 'react';
+import React, { Component } from 'react';
 import Scroll, { Helpers } from 'react-scroll';
 
 /**
@@ -12,7 +12,7 @@ import Scroll, { Helpers } from 'react-scroll';
  * @copyright         城云科技
  * @version           0.0.1
  */
-class DivSection extends React.Component {
+class DivSection extends Component {
   render() {
     return (
       <div {...this.props}>
