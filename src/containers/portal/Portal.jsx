@@ -8,6 +8,7 @@ import InwardNav from '../../components/common/InwardNav';
 import DivSection from '../../components/common/DivSection';
 import { Events, scrollSpy  } from 'react-scroll';
 import PortalBG from '../../components/portal/PortalBG';
+import PortalTemplateManager from '../../components/portal/PortalTemplateManager';
 import './portal.scss';
 /**
  * @class             Portal管理容器组件
@@ -44,6 +45,7 @@ class Portal extends React.Component {
         <PortalBG />
         {/* 第1屏 */}
         <DivSection name={navItems[0]} className="divSection">
+          <PortalTemplateManager />
         </DivSection>
         {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">
