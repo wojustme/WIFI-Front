@@ -15,7 +15,17 @@ class SingleTemplate extends Component {
   render() {
     return (
       <div>
-        <h1>单屏显示</h1>
+      <div>
+        <img
+          src="http://localhost:9992/img/portal/一键登录背景.png"
+        />
+        </div>
+        <div
+        style={{
+          position:"relative",
+          top:"-400px"
+        }}
+        >1234</div>
       </div>
     );
   }

@@ -3,6 +3,7 @@
  * src/components/portal/PortalTemplateManager.jsx
  */
 import React, { Component } from 'react';
+import CarouselTemplate from './template/CarouselTemplate';
 /**
  * @class             Portal管理第1屏的模板管理
  * @author            xurenhe
@@ -16,6 +17,7 @@ class PortalTemplateManager extends Component {
     return (
       <div>
         <h1>模板管理</h1>
+        <CarouselTemplate />
       </div>
     );
   }
