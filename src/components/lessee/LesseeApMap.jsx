@@ -15,7 +15,7 @@ import PartingLine from '../common/PartingLine';
  */
 class LesseeApMap extends React.Component {
   render() {
-    let apData =[//模拟数据
+    let apPoints =[//模拟数据
             {"lng":120.218261,"lat":30.221984,"count":50},
             {"lng":120.223332,"lat":30.216532,"count":51},
             {"lng":120.219787,"lat":30.230658,"count":15},
@@ -41,7 +41,7 @@ class LesseeApMap extends React.Component {
             imgName: "ap分布分割线"
           }}
         />
-        <BaiduMap id="apmap" apData={apData} className=""/>
+        <BaiduMap id="apmap" apPoints={apPoints} className=""/>
       </div>
     );
   }
