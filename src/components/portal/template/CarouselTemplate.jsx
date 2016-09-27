@@ -3,6 +3,7 @@
  * src/components/portal/CarouselTemplate.jsx
  */
 import React, { Component } from 'react';
+import Slider from './slider/Slider';
 /**
  * @class             滚动显示的Portal模板
  * @author            xurenhe
@@ -15,7 +16,24 @@ class CarouselTemplate extends Component {
   render() {
     return (
       <div>
-        <h1>滚动显示</h1>
+        <Slider
+          items={[{
+            src: require('./images/滚屏背景1.png'),
+            alt: 'images-1'
+          },{
+            src: require('./images/滚屏背景2.png'),
+            alt: 'images-2'
+          },{
+            src: require('./images/滚屏背景3.png'),
+            alt: 'images-3'
+          }]}
+          speed={1.5}
+          delay={3}
+          pause={true}
+          autoplay={true}
+          dots={true}
+          arrows={false}
+        />
       </div>
     );
   }
