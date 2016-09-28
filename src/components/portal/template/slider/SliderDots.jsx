@@ -1,6 +1,16 @@
+'use strict';
+/**
+ * src/components/common/SliderDots.jsx
+ */
 import React, { Component } from 'react';
-
-export default class SliderDots extends Component {
+/**
+ * @class             滚动屏中点组件
+ * @author            xurenhe
+ * @date              2016-09-27
+ * @copyright         城云科技
+ * @version           0.0.1
+ */
+class SliderDots extends Component {
   constructor(props) {
     super(props);
   }
@@ -29,3 +39,4 @@ export default class SliderDots extends Component {
     );
   }
 }
+export { SliderDots as default };

@@ -3,7 +3,6 @@
  * src/components/lessee/LesseeApMap.jsx
  */
 import React from 'react';
-import Image from '../common/Image';
 import BaiduMap from '../common/BaiMap';
 import PartingLine from '../common/PartingLine';
 /**
