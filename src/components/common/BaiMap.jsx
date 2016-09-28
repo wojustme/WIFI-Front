@@ -8,7 +8,7 @@ import React from 'react'
 
 class BaiDuMap extends React.Component{
     static propTypes={
-        points:React.PropTypes.array
+        apPoints:React.PropTypes.array
     }
     //坐标转换完之后的回调函数
     translateCallback(data){
@@ -34,11 +34,11 @@ class BaiDuMap extends React.Component{
         convertor.translate(pointArr, 1, 5, ::this.translateCallback);
     }
 	componentDidMount(){
-		const {apData} = this.props;
+		const {apPoints} = this.props;
         //1、地图初始化
         this.mapInit();
 		// 2.创建点标注
-		apData.forEach((data)=>{
+		apPoints.forEach((data)=>{
 			let lng = data.lng,  //经纬度
 			    lat =  data.lat,
 			    marker = new BMap.Marker(new BMap.Point(lng, lat));
@@ -56,7 +56,7 @@ class BaiDuMap extends React.Component{
 		//热力图
 		let heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":20});
 		this.map.addOverlay(heatmapOverlay);
-		heatmapOverlay.setDataSet({data:apData,max:100});
+		heatmapOverlay.setDataSet({data:apPoints,max:100});
 		heatmapOverlay.show();
 
 	}
