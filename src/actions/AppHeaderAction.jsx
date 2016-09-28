@@ -11,6 +11,7 @@ import { browserHistory } from 'react-router'
  */
 const navs = new Map();
 navs.set("首页", 'home')
+		.set("瞭望塔", 'watchtower')
 		.set("租户中心", 'lessee')
 		.set("数据中心", 'data')
 		.set("消息中心", 'message')

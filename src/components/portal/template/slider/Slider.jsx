@@ -22,12 +22,16 @@ class Slider extends Component {
     dots: true,
     items: []
   }
+  static autoPlayFlag = null
+
   constructor(props) {
     super(props);
     this.state = {
       nowLocal: 0
     };
   }
+
+  // 向前向后多少,通过SliderArrows传入
   turn(n) {
     var _n = this.state.nowLocal + n;
     if(_n < 0) {
@@ -38,6 +42,8 @@ class Slider extends Component {
     }
     this.setState({nowLocal: _n});
   }
+
+  // 开始自动轮播
   goPlay() {
     if(this.props.autoplay) {
       this.autoPlayFlag = setInterval(() => {
@@ -45,33 +51,45 @@ class Slider extends Component {
       }, this.props.delay * 1000);
     }
   }
+
+  // 暂停自动轮播
+  pausePlay() {
+    clearInterval(this.autoPlayFlag);
+  }
+
   componentDidMount() {
     this.goPlay();
   }
+  componentWillUnmount() {
+    clearInterval(this.autoPlayFlag);
+  }
   render() {
-    const { nowLocal } = this.state;
-    // 获得轮播图片个数
     let count = this.props.items.length;
-    // map出每一个节点项
+
     let itemNodes = this.props.items.map((item, idx) => {
       return <SliderItem item={item} count={count} key={'item' + idx} />;
     });
 
+
+    let dotsNode = <SliderDots turn={this.turn.bind(this)} count={count} nowLocal={this.state.nowLocal} />;
+
     return (
       <div
         className="slider"
+        onMouseOver={this.props.pause?this.pausePlay.bind(this):null} onMouseOut={this.props.pause?this.goPlay.bind(this):null}
       >
         <ul
           style={{
-            left: -100 * nowLocal + "%",
+            left: -100 * this.state.nowLocal + "%",
             transitionDuration: this.props.speed + "s",
             width: this.props.items.length * 100 + "%"
           }}
         >
           {itemNodes}
         </ul>
+        {this.props.dots?dotsNode:null}
       </div>
-    );
+      );
   }
 }
 

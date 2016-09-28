@@ -11,14 +11,14 @@ import { combineReducers } from 'redux';
 import * as AppHeaderTypes from '../constants/AppHeaderTypes';
 import { findKeyByValueFromObject } from '../utils/OriginalJSUtil';
 let appHeaderStates = new Map();
-let appHeaderItems = ["首页", "租户中心", "数据中心", "消息中心", "Portal管理"]
+let appHeaderItems = ["首页", "瞭望塔", "租户中心", "数据中心", "消息中心", "Portal管理"]
 let navData = {};
 appHeaderItems.map(
   elem => {
     navData[elem] = false;
   }
 );
-navData[appHeaderItems[1]] = true;
+navData[appHeaderItems[2]] = true;
 
 /**
  * 整个项目的导航状态树以及reducer函数

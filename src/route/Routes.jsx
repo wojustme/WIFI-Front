@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, browserHistory,hashHistory } from 'react-rou
 import { syncHistoryWithStore } from 'react-router-redux';
 import App from '../containers/App';
 import Home from '../containers/home/Home';
+import Watchtower from '../containers/watchtower/Watchtower';
 import Lessee from '../containers/lessee/Lessee';
 import LesseeMonitorAll from '../components/lessee/LesseeMonitorAll';
 import LesseeMonitorAPAlarm from '../components/lessee/LesseeMonitorAPAlarm';
@@ -31,6 +32,7 @@ class Routes extends React.Component {
         <Route path="/" component={App}>
           <IndexRoute component={Lessee} />
           <Route path="home" component={Home}/>
+          <Route path="watchtower" component={Watchtower}/>
           <Route path="lessee" component={Lessee}>
             <IndexRoute component={LesseeMonitorAll}/>
             <Route path='monitorAll' component={LesseeMonitorAll}/>
