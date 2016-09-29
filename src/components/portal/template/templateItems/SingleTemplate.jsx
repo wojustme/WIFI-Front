@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/portal/SingleTemplate.jsx
+ * src/components/portal/templateItems/SingleTemplate.jsx
  */
 import React, { Component } from 'react';
 /**

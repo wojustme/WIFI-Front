@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/portal/DirectLoginTemplate.jsx
+ * src/components/portal/templateItems/DirectLoginTemplate.jsx
  */
 import React, { Component } from 'react';
 /**

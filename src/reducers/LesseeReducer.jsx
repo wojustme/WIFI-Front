@@ -11,8 +11,8 @@ import { combineReducers } from 'redux';
 import * as LesseeTypes from '../constants/LesseeTypes';
 
 let bodyData = {
-	"01": {
-		"id": "01",
+	"row_01": {
+		"id": "row_01",
 		"apName": "SC-NSYJ-AP01",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -21,8 +21,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"02": {
-		"id": "02",
+	"row_02": {
+		"id": "row_02",
 		"apName": "SC-NSYJ-AP02",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -31,8 +31,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"03": {
-		"id": "03",
+	"row_03": {
+		"id": "row_03",
 		"apName": "SC-NSYJ-AP03",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -41,8 +41,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"04": {
-		"id": "04",
+	"row_04": {
+		"id": "row_04",
 		"apName": "SC-NSYJ-AP04",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -51,8 +51,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"05": {
-		"id": "05",
+	"row_05": {
+		"id": "row_05",
 		"apName": "SC-NSYJ-AP05",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -61,8 +61,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"06": {
-		"id": "06",
+	"row_06": {
+		"id": "row_06",
 		"apName": "SC-NSYJ-AP06",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -71,8 +71,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"07": {
-		"id": "07",
+	"row_07": {
+		"id": "row_07",
 		"apName": "SC-NSYJ-AP07",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -81,8 +81,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"08": {
-		"id": "08",
+	"row_08": {
+		"id": "row_08",
 		"apName": "SC-NSYJ-AP08",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -91,8 +91,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"09": {
-		"id": "09",
+	"row_09": {
+		"id": "row_09",
 		"apName": "SC-NSYJ-AP09",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",
@@ -101,8 +101,8 @@ let bodyData = {
 		"apLongitude": "120.01",
 		"apLatitude": "30.01"
 	},
-	"10": {
-		"id": "10",
+	"row_10": {
+		"id": "row_10",
 		"apName": "SC-NSYJ-AP10",
 		"apType": "AIR-CAP15321-H-K1",
 		"apMac": "84:b8:02:ac:f8:01",

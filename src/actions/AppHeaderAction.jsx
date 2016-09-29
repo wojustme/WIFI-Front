@@ -28,7 +28,7 @@ navs.set("首页", 'home')
  * @version              0.0.1
  */
 export let gotoAppNav = (moduleName) => {
-  browserHistory.push(navs.get(moduleName));
+  browserHistory.push("/" + navs.get(moduleName));
   return{
     type: AppHeaderTypes.APPHEADER_GOTOAPPNAV,
     moduleName

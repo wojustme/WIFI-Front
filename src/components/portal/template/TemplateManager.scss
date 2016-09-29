@@ -1,0 +1,16 @@
+// AP信息样式文件
+.template-manager-menu{
+	margin-top: 10px;
+	li{
+		float: left;
+		padding-left: 8px;
+		padding-right: 8px;
+    font-size: 13px;
+		a{
+			color: #000000;
+		}
+		.active{
+			color: #2DB7F5;
+		}
+	}
+}

@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/common/Slider.jsx
+ * src/components/common/portal/template/templateItems/Slider.jsx
  */
 import React, { Component } from 'react';
 import SliderItem from './SliderItem';
