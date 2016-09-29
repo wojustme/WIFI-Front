@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/common/SliderDots.jsx
+ * src/components/common/portal/template/templateItems/SliderDots.jsx
  */
 import React, { Component } from 'react';
 /**

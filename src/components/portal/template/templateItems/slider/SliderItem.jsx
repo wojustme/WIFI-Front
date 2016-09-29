@@ -1,8 +1,9 @@
 'use strict';
 /**
- * src/components/common/SliderItem.jsx
+ * src/components/common/portal/template/templateItems/SliderItem.jsx
  */
 import React, { Component } from 'react';
+import { IMG_SERVER } from '../../../../../config/AppConfigure';
 /**
  * @class             滚动屏中图片组件
  * @author            xurenhe
@@ -18,9 +19,10 @@ class SliderItem extends Component {
   render() {
     let { count, item } = this.props;
     let width = 100 / count + '%';
+    let url = IMG_SERVER + "portal/template/" + item.srcName;
     return (
       <li className="slider-item" style={{width: "237px"}}>
-        <img src={item.src} alt={item.alt} />
+        <img src={url} alt={item.alt} />
       </li>
     );
   }

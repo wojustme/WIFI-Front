@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/common/SliderArrows.jsx
+ * src/components/common/portal/template/templateItems/SliderArrows.jsx
  */
 import React, { Component } from 'react';
 /**

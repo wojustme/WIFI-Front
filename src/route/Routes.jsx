@@ -15,6 +15,7 @@ import LesseeMonitorSSID from '../components/lessee/LesseeMonitorSSID';
 import LesseeMonitorUserCount from '../components/lessee/LesseeMonitorUserCount';
 import LesseeMonitorBandWidth from '../components/lessee/LesseeMonitorBandWidth';
 import Portal from '../containers/portal/Portal';
+import ManageTemplate from '../components/portal/template/manageTemplate/ManageTemplate.jsx';
 
 /**
  * @class             项目APP的路由控制类
@@ -41,7 +42,10 @@ class Routes extends React.Component {
             <Route path='monitorUserCount' component={LesseeMonitorUserCount}/>
             <Route path='monitorBandWidth' component={LesseeMonitorBandWidth}/>
           </Route>
-          <Route path="portal" component={Portal}/>
+          <Route path="portal" component={Portal}>
+            <IndexRoute component={ManageTemplate}/>
+            <Route path='manageTemplate' component={ManageTemplate}/>
+          </Route>
         </Route>
       </Router>
     );

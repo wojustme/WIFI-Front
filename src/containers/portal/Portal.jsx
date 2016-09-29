@@ -45,7 +45,9 @@ class Portal extends React.Component {
         <PortalBG />
         {/* 第1屏 */}
         <DivSection name={navItems[0]} className="divSection">
-          <PortalTemplateManager />
+          <PortalTemplateManager>
+            {this.props.children}
+          </PortalTemplateManager>
         </DivSection>
         {/* 第2屏 */}
         <DivSection name={navItems[1]} className="divSection">

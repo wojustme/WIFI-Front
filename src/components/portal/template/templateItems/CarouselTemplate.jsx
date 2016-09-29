@@ -1,6 +1,6 @@
 'use strict';
 /**
- * src/components/portal/CarouselTemplate.jsx
+ * src/components/portal/templateItems/CarouselTemplate.jsx
  */
 import React, { Component } from 'react';
 import Slider from './slider/Slider';
@@ -26,13 +26,13 @@ class CarouselTemplate extends Component {
         <div>
           <Slider
             items={[{
-              src: require('./images/滚屏背景1.png'),
+              srcName: '滚屏背景1.png',
               alt: 'images-1'
             },{
-              src: require('./images/滚屏背景2.png'),
+              srcName: '滚屏背景2.png',
               alt: 'images-2'
             },{
-              src: require('./images/滚屏背景3.png'),
+              srcName: '滚屏背景3.png',
               alt: 'images-3'
             }]}
             speed={1.5}
@@ -111,7 +111,7 @@ class CarouselTemplate extends Component {
                 letterSpacing:"10px"
               }}
             >
-              登   录
+              登录
             </div>
           </div>
         </div>{/* 登录form结束 */}
