@@ -17,7 +17,7 @@ class WatchtowerBG extends Component {
   render() {
     return (
       <div>
-        <Image locateTo='watchtower' imgName='瞭望塔背景'/>
+        <Image style={{display:'block'}} locateTo='watchtower' imgName='瞭望塔背景'/>
       </div>
     );
   }

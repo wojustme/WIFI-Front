@@ -13,8 +13,8 @@ class WatchtowerRealTime extends React.Component{
 		fetch('http://localhost:9992/data/common/psgFlow.json').then(res=>{
 			return res.json()
 		}).then(data=>{
-			let psgFlowChart =  this.psgFlow.getEchartsInstance();
-			psgFlowChart.setOption({
+			let registerToday =  this.registerToday.getEchartsInstance();
+			registerToday.setOption({
 				xAxis:{
 					data:data.time
 				},
@@ -89,8 +89,8 @@ class WatchtowerRealTime extends React.Component{
 		    },
 		    grid:{
 		    	top:'20%',
-		    	left: '0%',
-		        right: '4%',
+		    	left: '3%',
+		        right: '3%',
 		        bottom: '3%',
 		        containLabel: true
 		    },
@@ -111,91 +111,115 @@ class WatchtowerRealTime extends React.Component{
 		};
 		let optionBar = {
 		    title: {
-		        text: '世界人口总量',
-		        subtext: '数据来自网络'
-		    },
-		    tooltip: {
-		        trigger: 'axis',
-		        axisPointer: {
-		            type: 'shadow'
+		        text: '注册手机品牌',
+		        bottom:'5%',
+		        x:'right',
+		        textStyle:{//字体
+		        	color:'#FFF',
+		        	fontWeight:'normal',
+		        	fontSize:14
 		        }
 		    },
-		    legend: {
-		        data: ['2011年', '2012年']
-		    },
 		    grid: {
-		        left: '3%',
-		        right: '4%',
-		        bottom: '3%',
+		    	top:'0%',
+		        left: '-5%',
+		        right: '3%',
+		        bottom: '-10%',
 		        containLabel: true
 		    },
 		    xAxis: {
 		        type: 'value',
-		        boundaryGap: [0, 0.01]
+		        axisLabel:{
+		        	show:false
+		        },
+		        axisLine:{
+		        	show:false,
+		        },
+		        splitLine: {
+	                show: false,
+	            }
 		    },
 		    yAxis: {
 		        type: 'category',
-		        data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+		        axisLabel:{
+		        	show:false
+		        },
+		        axisLine:{
+		        	show:false,
+		        },
+		        data: ['巴西','印尼','美国','印度','中国','法国']
 		    },
 		    series: [
 		        {
 		            name: '2011年',
 		            type: 'bar',
-		                 itemStyle: {
+		            label:{
+		            	normal:{
+		            		show:true,
+		            		position:'right',
+		            		formatter:'{b}:{c}%'
+		            	}
+		            },
+	                itemStyle: {
 		                normal: {
 		                    color: function(params) {
-		                        // build a color map as your need.
-		                        var mc =  new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
-		                          offset: 0, color: '#76B6F4' // 0% 处的颜色
-		                        }, {
-		                          offset: 1, color: '#020B17' // 100% 处的颜色
-		                        }], false);
-		                        var colorList = [
-		                          '#C1232B','#B5C334','#FCCE10','#E87C25',mc,
-		                           '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-		                           '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-		                        ];
+		                    	let color = ['#B0A1E8','#E96961','#FCB42A',
+		                    		'#F9EF32','#37F285','#77B6F5'];
+
+		                    		let colorList = color.map(item=>{
+		                    			return new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+					                          offset: 0, color: item // 0% 处的颜色
+					                        }, {
+					                          offset: 1, color: '#020B17' // 100% 处的颜色
+					                        }], false);
+		                    		})
 		                        return colorList[params.dataIndex]
 		                    }
 		                }
 		            },
-		            data: [18203, 23489, 29034, 104970, 131744, 630230]
+		            data: [18203, 23489, 29034, 104970, 131744,155555]
 		        }
 		    ]
 		};
 		return(
-			<div>
+			<div className='wt-history-box'>
 				{/*第1行*/}
-				<Row><Col span={24}><span>实时数据统计</span></Col></Row>
+				<Row><Col span={24}><span className='wt-statistic-title'>
+					实时数据统计
+				</span></Col></Row>
 				{/*第2行*/}
 				<Row>
 					<Col span={12}>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span className='num-font-size1'>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span className='num-font-size2'>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
 					<Col span={12}>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span className='num-font-size1'>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span className='num-font-size2'>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
 				</Row>
 				{/*第3行*/}
 				<Row>
-					<Col span={24}>
-						<ReactEcharts  ref={ref=>this.psgFlow=ref} option={optionLine} style={{height:152}}/>
+					<Col span={24} className='chart-box'>
+						<ReactEcharts  ref={ref=>this.registerToday=ref} option={optionLine} style={{height:220}}/>
 					</Col>
 				</Row>
 				{/*第4行*/}
 				<Row>
-					<Col span={24}>
-						<ReactEcharts option={optionBar} style={{height:152}}/>
+					<Col span={24} className='chart-box'>
+						<ReactEcharts option={optionBar} style={{height:160}}/>
 					</Col>
 				</Row>
 			</div>

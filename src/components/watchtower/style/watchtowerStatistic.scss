@@ -1,0 +1,44 @@
+/*
+* @Author: LiuLei
+* @Date:   2016-09-29 09:22:30
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-09-29 11:02:23
+*/
+
+.wt-statistic-box{
+	background-color:#4B80B3;
+
+	.wt-statistic-title{
+		color:#FFFFFF;
+		font-size: 18px;
+		padding: 50px 0 20px;
+		display:block;
+	}
+	.num-count-box{
+		background-color:#4C84BA;
+		box-shadow: 1px 1px 1px #385574;
+		margin: 0px 3px 3px 0;
+		span{
+			color:#FFFFFF;
+			float: right;
+			padding-right: 5px;
+			&.num-font-size1{
+				font-size:40px;
+			}
+			&.num-font-size2{
+				font-size:18px;
+			}
+		}
+
+	}
+	.chart-box{
+		background: radial-gradient(#3F4A54, #14212E);
+		margin-top: 2px;
+	}
+	.wt-history-box{
+		width:550px;
+		height:650px;
+
+	}
+}
+

@@ -8,17 +8,18 @@ import React from 'react';
 import {Row,Col} from 'antd';
 import WatchtowerRealTime from './WatchtowerRealTime';
 import WatchtowerHistory from './WatchtowerHistory';
+import './style/watchtowerStatistic.scss';
 class WatchtowerStatistic extends React.Component{
 	render(){
 		return(
-			<div>
+			<div className='wt-statistic-box'>
 				<Row>
  					{/*实时数据统计*/}
- 					<Col span={12}>
+ 					<Col span={10} offset={2}>
  						<WatchtowerRealTime/>
  					</Col>
  					{/*历史数据统计*/}
- 					<Col span={12}>
+ 					<Col span={10}>
  						<WatchtowerHistory/>
  					</Col>
  				</Row>
