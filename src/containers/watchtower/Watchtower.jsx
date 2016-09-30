@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import WatchtowerBG from '../../components/watchtower/WatchtowerBG';
+import WatchtowerStatistic from '../../components/watchtower/WatchtowerStatistic';
 /**
  * @class             Watchtower瞭望塔容器组件
  * @author            liulei
@@ -17,6 +18,8 @@ class Watchtower extends React.Component {
       <div>
         {/* 第0屏 */}
         <WatchtowerBG />
+    	  {/* 第1屏 */}
+        <WatchtowerStatistic/>
       </div>
     );
   }

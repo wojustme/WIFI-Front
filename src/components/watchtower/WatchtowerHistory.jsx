@@ -1,22 +1,23 @@
 /**
  * @author LiuLei
- * @data 2016-09-12
+ * @date 2016-09-28
  * @copyright 成云科技
- * @function 监控方面的整体分析
+ * @function 历史数据统计
  */
 import React from 'react';
 import {Row,Col} from 'antd';
 import ReactEcharts from 'echarts-for-react';
 import ES6Promise from 'es6-promise';
 import 'isomorphic-fetch';
+import {WATCHTOWER_HISTORY_REGISTER} from '../../ajaxurls/watchtower/WatchtowerAJAXURLS';
 ES6Promise.polyfill();
-class LesseeMonitorAnalysis extends React.Component{
+class WatchtowerHistory extends React.Component{
 	componentDidMount(){
-		fetch('http://localhost:9992/data/common/psgFlow.json').then(res=>{
+		fetch(WATCHTOWER_HISTORY_REGISTER).then(res=>{
 			return res.json()
 		}).then(data=>{
-			let psgFlowChart =  this.psgFlow.getEchartsInstance();
-			psgFlowChart.setOption({
+			let registerHistory =  this.registerHistory.getEchartsInstance();
+			registerHistory.setOption({
 				xAxis:{
 					data:data.time
 				},
@@ -91,8 +92,8 @@ class LesseeMonitorAnalysis extends React.Component{
 		    },
 		    grid:{
 		    	top:'20%',
-		    	left: '0%',
-		        right: '4%',
+		    	left: '3%',
+		        right: '3%',
 		        bottom: '3%',
 		        containLabel: true
 		    },
@@ -132,7 +133,7 @@ class LesseeMonitorAnalysis extends React.Component{
 		    grid: {
 		    	top:'25%',
 		        left: '3%',
-		        right: '0%',
+		        right: '3%',
 		        bottom: '3%',
 		        containLabel: true
 		    },
@@ -189,63 +190,76 @@ class LesseeMonitorAnalysis extends React.Component{
 		    ]
 		};
 		return(
-			<div className='lesseeMonitorAnalysis-box'>
+			<div className='wt-history-box'>
+				<Row><Col span={24}><span className='wt-statistic-title'>
+					实时数据统计
+				</span></Col></Row>
 				{/*第1行*/}
 				<Row>
-					<Col span={12} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+					<Col span={12} >
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span className='num-font-size1'>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span className='num-font-size2'>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
-					<Col span={12} className='numCount'>
-						<Row><Col>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col>
-							<span>本月累计人数(个)</span>
-						</Col></Row>
+					<Col span={12} >
+						<div className='num-count-box'>
+							<Row><Col>
+								<span className='num-font-size1'>3251</span>
+							</Col></Row>
+							<Row><Col>
+								<span className='num-font-size2'>本月累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
 				</Row>
 				{/*第2行*/}
 				<Row>
-					<Col span={24} className='passengerFlowChart'>
-						<ReactEcharts ref={ref=>this.psgFlow=ref} option={optionLine} style={{height:152}}/>
+					<Col span={24} className='chart-box'>
+						<ReactEcharts ref={ref=>this.registerHistory=ref} option={optionLine} style={{height:173}}/>
 					</Col>
 				</Row>
 				{/*第3行*/}
 				<Row>
-					<Col span={24} className='passengerFlowChart'>
-						<ReactEcharts option = {optionColumn} style={{height:152}} />
+					<Col span={24} className='chart-box'>
+						<ReactEcharts option = {optionColumn} style={{height:140}} />
 					</Col>
 				</Row>
 				{/*第4行*/}
 				<Row>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+					<Col span={8}>
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span style={{fontSize:32}}>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+					<Col span={8}>
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span style={{fontSize:32}}>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
-					<Col span={8} className='numCount'>
-						<Row><Col span={24}>
-							<span style={{fontSize:32}}>3251</span>
-						</Col></Row>
-						<Row><Col span={24}>
-							<span>当天累计人数(个)</span>
-						</Col></Row>
+					<Col span={8}>
+						<div className='num-count-box'>
+							<Row><Col span={24}>
+								<span style={{fontSize:32}}>3251</span>
+							</Col></Row>
+							<Row><Col span={24}>
+								<span>当天累计人数(个)</span>
+							</Col></Row>
+						</div>
 					</Col>
 				</Row>
 			</div>
@@ -253,4 +267,4 @@ class LesseeMonitorAnalysis extends React.Component{
 	}
 }
 
-export default LesseeMonitorAnalysis;
+export default WatchtowerHistory;

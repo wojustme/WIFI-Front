@@ -10,7 +10,6 @@ import LesseeMonitorAPAlarm from './LesseeMonitorAPAlarm';
 import LesseeMonitorSSID from './LesseeMonitorSSID';
 import LesseeMonitorUserCount from './LesseeMonitorUserCount';
 import LesseeMonitorBandWidth from './LesseeMonitorBandWidth';
-import LesseeMonitorAnalysis from './LesseeMonitorAnalysis';
 
 class LesseeMonitorAll extends React.Component{
 	render(){
