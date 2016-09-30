@@ -17,14 +17,15 @@ import './Table.scss';
 class TableWithAction extends Component {
   constructor(props){
     super(props);
-    const { headData, operateOptions } = this.props;
+    const { headData, operateOptions, isChooseItem } = this.props;
     this.state = {
-      headData: headData,
-      operateOptions: operateOptions
+      headData,
+      operateOptions: operateOptions || [],
+      isChooseItem: isChooseItem || false
     };
   }
   render() {
-    const { headData, operateOptions } = this.state;
+    const { headData, operateOptions, isChooseItem } = this.state;
     const { bodyData, operationsVisible } = this.props;
     let idToRowNum = new Map();
     let counter = 0;
@@ -34,7 +35,10 @@ class TableWithAction extends Component {
       }
     );
     if(operationsVisible && !isEmptyArray(operateOptions))
-      tableHead.push(<th key="operates">操作</th>)
+      tableHead.push(<th key="operates">操作</th>);
+    if (isChooseItem) {
+      tableHead = [(<th key="checkChoose"></th>), ...tableHead];
+    }
     tableHead = <tr>{tableHead}</tr>;
 
     let tableBody = Object.keys(bodyData).map(
@@ -66,6 +70,9 @@ class TableWithAction extends Component {
             }
           );
           rowDataHtml.push(<td key="action">{operateLinks}</td>);
+        }
+        if (isChooseItem) {
+          rowDataHtml = [<td key="123"><input type="checkbox"/></td>, ...rowDataHtml]
         }
         return (
           <tr key={rowElem['id']}>

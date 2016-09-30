@@ -19,7 +19,8 @@ class PortalTemplateManager extends Component {
     return (
       <div
         style={{
-          height:650
+          height: 650,
+          width: "100%"
         }}
       >
         <PartingLine
@@ -32,7 +33,8 @@ class PortalTemplateManager extends Component {
           style={{
             position:"relative",
             top:"0px",
-            left:"11%"
+            left:"11%",
+            width:"89%"
           }}
         >
           {/* 模板管理导航 */}
