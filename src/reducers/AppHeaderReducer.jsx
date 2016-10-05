@@ -11,7 +11,7 @@ import { combineReducers } from 'redux';
 import * as AppHeaderTypes from '../constants/AppHeaderTypes';
 import { findKeyByValueFromObject } from '../utils/OriginalJSUtil';
 let appHeaderStates = new Map();
-let appHeaderItems = ["首页", "瞭望塔", "租户中心", "数据中心", "消息中心", "Portal管理"]
+let appHeaderItems = ["首页", "瞭望塔", "租户中心", "数据中心", "Portal管理"]
 let navData = {};
 appHeaderItems.map(
   elem => {
@@ -19,7 +19,7 @@ appHeaderItems.map(
   }
 );
 navData[appHeaderItems[2]] = true;
-
+let isBuleStyle = false;
 /**
  * 整个项目的导航状态树以及reducer函数
  * @method    appNavData
@@ -31,19 +31,21 @@ navData[appHeaderItems[2]] = true;
  * @copyright            城云科技
  * @version              0.0.1
  */
-let appNavData = (state = navData, action) => {
+let headerData = (state = { navData, isBuleStyle}, action) => {
   switch (action.type) {
     case AppHeaderTypes.APPHEADER_GOTOAPPNAV:
       let moduleName = action.moduleName;
-      let returnState = {};
-      for(let key in state) {
+      let isBuleStyle = moduleName == "瞭望塔" ? true : false;
+      let returnNavData = {};
+      for(let key in state.navData) {
         key == moduleName
-          ? returnState[key] = true
-          : returnState[key] = false;
+          ? returnNavData[key] = true
+          : returnNavData[key] = false;
       }
       return {
         ...state,
-        ...returnState
+        navData: returnNavData,
+        isBuleStyle
       };
       break;
     default:
@@ -52,11 +54,13 @@ let appNavData = (state = navData, action) => {
 }
 // 合并
 export const AppHeader = combineReducers({
-  appNavData
+  headerData
 });
 
 /*
 SHOW STATE TREE:
 AppHeader
-  -appNavData
+  -headerData
+    -navData
+    -isBuleStyle
  */

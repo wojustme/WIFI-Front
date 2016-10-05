@@ -13,12 +13,13 @@ import AppHeaderClickImg from './AppHeaderClickImg';
  */
 class HeaderOption extends Component {
   render() {
-    let { imgName, isSelected } = this.props;
+    let { imgName, isSelected, isBuleStyle } = this.props;
     return (
       <AppHeaderClickImg
         locateTo='header'
         imgName={imgName}
         isSelected={isSelected}
+        isBuleStyle={isBuleStyle}
         cursorStyle="pointer"
         clickHeaderItem={
           (moduleName) => this.props.clickHeaderItem(moduleName)

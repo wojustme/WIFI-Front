@@ -13,9 +13,10 @@ import { IMG_SERVER } from '../../config/AppConfigure.jsx'
  */
 class AppHeaderClickImg extends Component {
   render() {
-    const { locateTo, imgName, isSelected, cursorStyle, style } = this.props;
+    const { locateTo, imgName, isSelected, cursorStyle, style, isBuleStyle } = this.props;
     let selectFlag = isSelected ? "_selected" : "";
-    let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + '.png';
+    let buleStyle = isBuleStyle ? "_bule" : "";
+    let url = IMG_SERVER + locateTo + '/' + imgName + selectFlag + buleStyle + '.png';
     let styleTmp;
     style == undefined
       ? styleTmp = {}

@@ -18,7 +18,9 @@ import SelectFlagImg from '../../components/common/SelectFlagImg';
 class AppHeader extends React.Component {
   render() {
     const { AppHeader, dispatch } = this.props;
-    const appNavData = AppHeader.appNavData;
+    const headerData = AppHeader.headerData;
+    const appNavData = headerData.navData;
+    const isBuleStyle = headerData.isBuleStyle;
     const actions = bindActionCreators(AppHeaderActions, dispatch);
     let headerOptionItems = Object.keys(appNavData).map(
       key => {
@@ -27,6 +29,7 @@ class AppHeader extends React.Component {
             key={key}
             imgName={key}
             isSelected={appNavData[key]}
+            isBuleStyle={isBuleStyle}
             clickHeaderItem={
               moduleName => {
                 actions.gotoAppNav(moduleName)
@@ -44,7 +47,11 @@ class AppHeader extends React.Component {
           zIndex: 0
         }}
       >
-        <SelectFlagImg locateTo='header' imgName='header导航条背景'/>
+        <SelectFlagImg
+          locateTo='header'
+          isBuleStyle={isBuleStyle}
+          imgName='header导航条背景'
+        />
         {/* 导航条选项标签 */}
         <div
           style={{
